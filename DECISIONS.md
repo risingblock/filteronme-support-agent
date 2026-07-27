@@ -1,0 +1,85 @@
+# Decision Log
+
+Decisions made in the planning chat (July 2026), with rationale. Don't reopen
+without new information.
+
+## D1. Drafts-only to start
+Agent posts suggested replies as private Help Scout notes; human sends. Chosen
+over auto-send both to build trust AND as the primary prompt-injection defense
+(a human sees every output before a customer does).
+
+## D2. Model the architecture on gumclaw, scaled down
+Gumclaw = stock agent framework + ~273 markdown skill playbooks + read access to
+live systems + ~78 cron loops, on always-on hardware. No fine-tuning; it learns by
+editing files. At <10 tickets/day we need ~10–20 playbooks and 2–3 crons. Same
+architecture, tiny scale.
+
+## D3. Raw export is JSONL, not markdown
+Eddy challenged "export to .md files" — correctly. JSONL verbatim from the API is
+the lossless source of truth (keeps tags, timestamps, emails, status). Markdown
+views with YAML frontmatter are *generated* from it for grep and human reading.
+Re-render anytime without re-exporting.
+
+## D4. No vector DB; playbooks + grep; SQLite FTS5 as upgrade path
+At a few thousand conversations, agentic search (ripgrep over md views + frontmatter
+topic tags) is effective and zero-infrastructure. The agent shouldn't be searching
+raw history at runtime much anyway: "how do we answer this?" → playbooks (if it's
+searching often, a playbook is missing — fix the playbook); "have we talked to this
+customer?" → live Help Scout API search by email, never the stale export. If search
+ever feels weak: load JSONL into SQLite FTS5 (single file, no server). Embeddings
+only justified at 10k+ conversations — not our scale.
+
+## D5. Local Mac first, Hetzner VPS later
+Early weeks are all iteration (editing playbooks daily) — faster on the machine in
+front of you. Promote to server once boring. Enablers from day one: brain folder as
+a private git repo (move = clone), secrets in .env outside the repo. Mac sleep gap
+is acceptable for drafts-only; auto-send or annoyance triggers the move.
+
+## D6. Browser/computer-use is a last resort
+Help Scout, Stripe, Shopify all have full APIs. Only our own app might lack one —
+prefer building a tiny read-only endpoint over screen-driving. This also means the
+agent runs headless on cheap Linux.
+
+## D7. Read-only everywhere, write only Help Scout notes/tags
+Stripe restricted read-only key; Shopify read-only Admin token; no refund/cancel/
+account-change capability. Humans execute money actions even after replies go
+autonomous. Also part of the injection blast-radius containment.
+
+## D8. Model auth/billing strategy
+- Hermes + Claude subscription OAuth: only works on Claude **Max with extra usage
+  credits purchased**, and burns overage credits (≈API pricing anyway). Pro doesn't
+  work. Trail of credential bugs in the Hermes issue tracker. Not attractive.
+- Hermes + **ChatGPT Plus ($20) via Codex OAuth: works** — good for the free-ish
+  local phase. Caveats: weekly usage cap (errors until reset ⇒ silent stalls),
+  rotating refresh tokens occasionally need interactive re-auth — fine on the Mac,
+  bad unattended.
+- **Server phase: plain API key.** Unattended cron wants metered, predictable auth
+  that never needs a human login. Even pro-subscription guides say API keys for
+  production. ~$10–30/mo at our volume.
+
+## D9. Model tiering
+Frontier model for the judgment loop (anything a customer might read, anything
+deciding an escalation) — the mini-tier models degrade most on exactly agentic
+tool-use, and savings at our volume (~$15/mo) don't cover the review-time cost of
+dumber drafts. Mini-tier (e.g. GPT-5.4 mini) IS right for bulk mechanical passes:
+Phase 1 clustering (the single biggest token spend), ticket topic-tagging, daily
+digest, spam detection.
+
+## D10. Polling over webhooks
+15-minute cron poll is plenty at <10/day. Webhooks exist in the Help Scout API if
+latency ever matters (i.e., after auto-send).
+
+## D11. Escalation is a success state
+Playbooks explicitly define when NOT to answer. `needs-human` tag is rewarded
+behavior. Refunds/angry/money cases stay human-touched indefinitely.
+
+## Open questions (not yet decided)
+
+- Does Help Scout's reply endpoint support a `draft: true` flag for real API drafts,
+  or do we standardize on private Notes? → test with a real account in Phase 2.
+- Final runtime: chat leaned Hermes agent (macOS + Linux headless, `--skip-browser`),
+  but Eddy is now working in Claude Code — Claude Code headless (`claude -p`) on cron
+  is a viable alternative runtime that uses his existing Claude subscription natively.
+  Decide in Phase 2; the playbooks/scripts/data design is runtime-agnostic either way.
+- Which ChatGPT/Claude subscriptions Eddy actually holds (affects local-phase billing
+  choice only).
