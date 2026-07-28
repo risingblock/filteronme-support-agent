@@ -148,10 +148,12 @@ portal. Rollout is phased to respect guardrail 2:
 Phase 2 is now a support portal + email ingestion built INTO filteronme-one
 (same repo/DB/auth/Stripe code), hosted on Vercel. The "agent runtime"
 collapses to per-ticket LLM calls (Claude API, Sonnet 5) from the portal
-backend — no always-on machine. Vercel's **eve** framework (June 2026,
-agents-as-directories: markdown skills + TS tools + built-in human-approval
-gates) is the primary runtime candidate; plain Agent SDK background functions
-are the fallback if eve proves too immature. Brain (playbooks/prompts) stays
+backend — no always-on machine. Runtime (amended 2026-07-28, Eddy flagged
+eve@0.27 as beta): **GA Vercel AI SDK** tool loop in a background function;
+directory kept eve-shaped so adopting eve at 1.0 is a rename, not a rewrite.
+Our run is stateless 30–90s — eve's beta features (durability, mid-run
+approvals, channels) are ones we don't use; the approval gate is the
+portal's Send button either way. Brain (playbooks/prompts) stays
 in THIS repo and ships to the portal at deploy time. Hermes is dropped
 entirely (D8's auth concerns + no need for a harness at this workload).
 Help Scout: kept read-only until cutover, then cancelled; the JSONL export is

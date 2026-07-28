@@ -76,16 +76,26 @@ the TOOL re-verifies From == subscription email server-side, only sets
 cancel_at_period_end, audit-logs, and sits behind an eve approval gate even
 then.
 
-## eve layout (updated 2026-07-27 after reading the eve docs — it's beta)
+## Runtime: Vercel AI SDK now, eve later-maybe (updated 2026-07-28)
+
+Eddy flagged eve@0.27.x as beta — correct call. Our agent run is a stateless
+30–90s job (ticket in → JSON draft out, 4 read-only tools); eve's beta-stage
+features (durable sessions, mid-run approvals, channels, sandboxes) are all
+features we don't use — our approval gate is the portal's Send button, after
+the run. So: build on the GA **Vercel AI SDK** (one background function,
+tool loop via AI Gateway `anthropic/claude-sonnet-5`, OIDC, no API keys) and
+keep the directory eve-shaped (zod-schema tools are near-identical in both)
+so adopting eve at 1.0 is a rename, not a rewrite.
 
 The agent is a STANDALONE Vercel project deployed from THIS repo (not inside
-filteronme-one). Env isolation is the point (D20 made physical):
+filteronme-one). Env isolation is the point (D20 made physical) — and it is
+a property of the Vercel project, not of any framework:
 
 ```
 filteronme-support-agent/          ← this repo, pushed to private GitHub
   agent/
     instructions.md                ← adapted from prompts/draft_reply.md
-    agent.ts                       ← defineAgent({ model: 'anthropic/claude-sonnet-5' })
+    run.ts                         ← AI SDK tool loop (eve-compatible shape)
     skills/                        ← symlink/copy of playbooks/ (no sync step)
     tools/
       get_account_by_email.ts      ← the D20 whitelist, one file per tool
@@ -104,9 +114,9 @@ filteronme-support-agent/          ← this repo, pushed to private GitHub
   itself. Agent blast radius = read-only lookups, full stop.
 - history/ stays gitignored → never reaches GitHub/Vercel.
 
-Human-approval gate on: sending anything, closing as spam, any future write.
-If eve friction exceeds a day of fighting it → fallback: one background
-function calling Agent SDK with the same files. The brain doesn't change.
+Human-approval gate on: sending anything, closing as spam, any future write —
+all enforced in the PORTAL (deterministic code + your click), independent of
+which runtime executes the draft run.
 
 ## Why email I/O lives in the portal, not the agent (Eddy asked, 2026-07-27)
 
