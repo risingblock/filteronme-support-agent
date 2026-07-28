@@ -57,10 +57,14 @@ Once Phase 3 (Stripe) lands:
 
 Default shape: one diagnostic question, or one concrete next step — never both, and never the full fix ladder in one message unless the ticket already ruled out the earlier rungs.
 
-Camera not showing up in another app (first contact, info missing):
+Camera not showing up in another app (first contact, info missing — per
+Eddy's dry-run grading 2026-07-27, ask OS + whether it works elsewhere, and
+offer webcamtests.com as the neutral test):
 > Hi <Name>,
 >
-> What version of Mac/Windows do you have, and which app are you trying to use Filteronme with?
+> Are you on Mac or Windows? And does the Filteronme camera work in any other
+> app — you can test it quickly at webcamtests.com by selecting "Filteronme
+> Camera" there.
 >
 > Best
 

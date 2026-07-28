@@ -117,7 +117,8 @@ live lookup. The two things that DO depend on their setup:
   *at the same time* requires two subscriptions (conv 2676353286, conv
   2903948785, conv 2921577752, conv 3216602724, conv 3390413588 — this
   answer is unusually consistent, near-verbatim, across 5+ tickets spanning
-  2024–2026).
+  2024–2026). Per Eddy's dry-run grading (2026-07-27): state the policy
+  plainly, do NOT append a pricing/upsell link — it reads as silly.
 - **Payment methods**: no PayPal; accepts major cards and wallets (Apple
   Pay, Google Pay, Amazon Pay, Stripe Link) via Stripe (conv 3118611313,
   docs 118). SEPA direct debit shows on the upgrade page only for users

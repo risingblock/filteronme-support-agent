@@ -126,6 +126,23 @@ the historical human replies. Eddy grades the side-by-side. The drafting prompt
 used in the dry run (prompts/draft_reply.md) IS the production prompt — no
 separate test-only prompt that could diverge.
 
+## D18. Verified-owner fast-cancel is the target workflow (Eddy, 2026-07-27)
+From the dry-run grading: when the ticket's From address matches the
+subscription's email of record (app-DB login email or Stripe customer email),
+Eddy wants cancellation executed on request — no bouncing the customer to the
+portal. Rollout is phased to respect guardrail 2:
+- **Now (Phase 2, drafts-only):** agent verifies ownership via read-only
+  lookups, then escalates with an explicit recommendation note ("verified
+  owner — cancel now") + a drafted confirmation reply. Human cancels in
+  Stripe, sends the reply.
+- **Later (requires amending guardrail 2, explicit approval at that time):** a
+  Stripe restricted key with write scoped to Subscriptions only could let the
+  agent cancel directly (cancel_at_period_end — reversible, no refund
+  capability). Not enabled yet.
+- If ownership can't be verified: portal link as before. Also always mention
+  the in-app **Billing button** (auto-logs into the portal) alongside the
+  billing URL.
+
 ## Open questions (not yet decided)
 
 - Does Help Scout's reply endpoint support a `draft: true` flag for real API drafts,

@@ -37,7 +37,18 @@ status: approved 2026-07-27
 
 ## Policy
 
-- **Self-serve is the default answer, for essentially every ticket, including blunt "cancel now" demands with no stated portal problem.** Point to the Billing button in-app or https://filteronme.com/billing, log in with the receipt email. This is true even for angry, all-caps, or dispute-threat openers (conv 3208656014, 3216581774, 3121420422, 3187137828) — the agent does not skip straight to a manual cancellation just because the customer is upset.
+- **UPDATED POLICY (Eddy, 2026-07-27 — see D18): verified owner → cancel on request; unverified → self-serve.**
+  - When read-only lookups confirm the ticket's From address IS the
+    subscription's email of record (app-DB login email or Stripe customer
+    email): don't bounce them to the portal. Escalate with the explicit note
+    "verified owner — cancel now" plus a drafted confirmation reply; the human
+    cancels in Stripe and sends. (Direct agent cancellation requires a future
+    guardrail-2 amendment — not enabled.)
+  - When ownership can't be verified (no lookup available, or From doesn't
+    match): the self-serve answer as before — the **Billing button inside the
+    app (auto-logs them in)** or https://filteronme.com/billing with the
+    receipt email. Applies to angry/all-caps openers too (conv 3208656014,
+    3216581774, 3121420422, 3187137828).
 - **Trial ≠ subscription.** If they never entered a card, there's nothing to cancel — we don't hold card info for trial users, and trials auto-expire (conv 3187137828, doc 112).
 - **Portal access problems get the login-link workaround, not an immediate manual cancel:** try each email they might have paid with at https://filteronme.com/billing-email — note it does NOT reveal the subscription email, it sends a portal link to a correctly-guessed address (code-verified 2026-07-27; doc 108).
 - **Manual, support-side cancellation is reserved for genuine lockouts** — lost access to the email/device the account is under, no way to log in at all, elderly/confused customers, or a subscription with no working self-serve path. In the current process this is *not* something Jona or the agent does directly: the front-line rep posts an internal Help Scout Note tagging `@eddy` with the account email/last-4/details, and Eddy performs the actual cancellation in Stripe, then confirms back via another internal note before the customer-facing reply goes out (conv 3236601462, 3397716209, 3258491021, 3268271602). **This is a write action and stays entirely with a human** — consistent with D7 (agent has no Stripe write access) and D11 (money-adjacent cases stay human-touched).
@@ -54,15 +65,25 @@ Decision guide:
 3. "Already cancelled but still charged" → check status before replying (see What to check first); this is a billing-playbook question as much as a cancellation one — cross-reference it rather than guessing.
 4. Genuinely locked out (lost email/device, no working login at all) → don't promise a cancellation yourself; escalate with an internal note.
 
-**1. How do I cancel (standard, first contact)**
+**1. How do I cancel (standard, first contact — ownership not verifiable)**
 
 > Hi <FirstName>,
 >
-> You can cancel anytime at https://filteronme.com/billing — log in with the email on your receipt (not necessarily this one, especially if you paid with Apple or Google Pay).
+> Easiest way: click the Billing button inside the app — it logs you into the billing portal automatically. Or go to https://filteronme.com/billing and log in with the email on your receipt (not necessarily this one, especially if you paid with Apple or Google Pay).
 >
 > If you're only on the free trial, there's nothing to cancel — trials auto-expire and we never save a card for them.
 >
 > Best
+
+**1b. Verified owner (lookup confirmed From = subscription email) — escalate with this draft + note "verified owner — cancel now":**
+
+> Hi <FirstName>,
+>
+> Done — your subscription is cancelled and you won't be charged again. You'll keep access through the end of the period you already paid for.
+>
+> Best
+
+*(Human sends this only AFTER actually cancelling in Stripe. The agent never sends it, and never drafts it unless the lookup verified ownership.)*
 
 **2. Blunt/angry "cancel now" demand, no portal issue mentioned**
 

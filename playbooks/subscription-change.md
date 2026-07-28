@@ -144,6 +144,12 @@ customer-facing ask for more info if key details are missing):**
 >
 > Best
 
+**Never draft "I'll check on our end and follow up"** (Eddy dry-run grading
+2026-07-27: "who is following up exactly?"). When a lookup is needed but
+unavailable, either ask the CUSTOMER one concrete question that unblocks it,
+or escalate with an internal note listing the lookups — a promise of action
+in a draft forces `needs_human` (prompts/draft_reply.md rule 2b).
+
 ## Escalate instead (tag needs-human) when
 
 - Customer lost access to the old email and needs a manual transfer —

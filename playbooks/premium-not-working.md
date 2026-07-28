@@ -108,6 +108,24 @@ account facts plainly.
 >
 > Best
 
+**Pattern B2 — the app itself broke at/after payment (preview gone, camera
+stopped, features dead — not just watermark). Per Eddy's dry-run grading
+(2026-07-27): pair the account check with real troubleshooting, don't send
+login-advice alone:**
+> Hi,
+>
+> Sorry about that. Two things to try:
+>
+> 1. Log out (Settings tab) and back in with the email you paid with — if you
+> see a trial-expired screen, click "I already have a premium account."
+> 2. If the preview is still blank, reboot the app (File > Reset), and if
+> that doesn't fix it, reinstall the latest version from
+> filteronme.com/downloads.
+>
+> Let me know if it's still broken after that — are you on Mac or Windows?
+>
+> Best
+
 **Pattern C — confirmed billing problem (past due / failed payment):**
 > Hi,
 >
