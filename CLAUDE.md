@@ -8,11 +8,19 @@ decided and why — do not relitigate those without new information.**
 
 ## Context
 
-- Support runs on **Help Scout** today. Volume is **< 10 tickets/day**.
+- Support runs on **Help Scout** today. Volume is **< 10 tickets/day**. Scope is
+  the **Filteronme Support mailbox only** (id `299865`); the Ambassadors/ConvertOut
+  mailbox belongs to a separate future agent, never this one.
 - Facts needed to answer tickets live in **Stripe**, **Shopify**, and **our own app/database**.
-- Current status: **Phase 0 scripts are written** (`scripts/export_helpscout.py`,
-  `scripts/render_md_views.py`) but not yet run — waiting on Help Scout API creds
-  in `.env`. Next: run the export, then Phase 1 (playbooks) per PLAN.md.
+- Public help docs: https://help.filteronme.com (exported to `history/docs/`;
+  some articles stale — check `last_updated`).
+- In historical replies: **Eddy Chung (founder) is the canonical voice**; replies
+  by Jona De Guzman / Rajan Patel (former support) are not authoritative (see D12).
+- Current status: **Phase 0 done** (1,957 conversations exported + rendered with
+  topic frontmatter; docs site exported). **Phase 1 drafted**: 16 playbooks +
+  TONE.md in `playbooks/`, all `status: draft-for-eddy-review` — Eddy must answer
+  `playbooks/OPEN-QUESTIONS.md` before any go live. Next: Phase 2 (drafts-only
+  cron loop) once playbooks are approved.
 
 ## Core architecture (the gumclaw insight)
 

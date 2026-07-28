@@ -20,6 +20,7 @@ Stdlib only — no pip install needed.
 
 import argparse
 import json
+import os
 import sys
 import time
 import urllib.error
@@ -102,12 +103,30 @@ class HelpScoutClient:
         raise RuntimeError(f"gave up after {MAX_RETRIES} attempts: GET {url}")
 
 
-def export(client: HelpScoutClient, status: str) -> int:
+def select_mailboxes(client: HelpScoutClient, selector: str | None) -> list[dict]:
     mailboxes = client.get("/mailboxes")["_embedded"]["mailboxes"]
+    if selector is None:
+        return mailboxes
+    matches = [
+        m
+        for m in mailboxes
+        if str(m["id"]) == selector or selector.lower() in m["name"].lower()
+    ]
+    if not matches:
+        names = [f"{m['id']}: {m['name']}" for m in mailboxes]
+        sys.exit(f"No mailbox matches {selector!r}. Available:\n  " + "\n  ".join(names))
+    if len(matches) > 1:
+        names = [f"{m['id']}: {m['name']}" for m in matches]
+        sys.exit(f"{selector!r} is ambiguous:\n  " + "\n  ".join(names))
+    return matches
+
+
+def export(client: HelpScoutClient, status: str, mailboxes: list[dict]) -> int:
     print(f"{len(mailboxes)} mailbox(es): {[m['name'] for m in mailboxes]}")
 
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    tmp_path = OUT_PATH.with_suffix(".jsonl.tmp")
+    # per-process temp name: concurrent runs must never share a partial file
+    tmp_path = OUT_PATH.with_suffix(f".jsonl.tmp.{os.getpid()}")
 
     seen_ids = set()
     with tmp_path.open("w") as out:
@@ -151,6 +170,16 @@ def main():
         choices=["all", "active", "open", "closed", "pending", "spam"],
         help="conversation status filter (default: all)",
     )
+    parser.add_argument(
+        "--mailbox",
+        help="export only this mailbox (numeric id or name substring); "
+        "default: all mailboxes",
+    )
+    parser.add_argument(
+        "--list-mailboxes",
+        action="store_true",
+        help="print available mailboxes and exit",
+    )
     args = parser.parse_args()
 
     env = load_env(REPO_ROOT / ".env")
@@ -165,7 +194,14 @@ def main():
 
     client = HelpScoutClient(app_id, app_secret)
     client.authenticate()
-    count = export(client, args.status)
+
+    if args.list_mailboxes:
+        for m in client.get("/mailboxes")["_embedded"]["mailboxes"]:
+            print(f"{m['id']}: {m['name']} <{m.get('email', '')}>")
+        return
+
+    mailboxes = select_mailboxes(client, args.mailbox)
+    count = export(client, args.status, mailboxes)
     print(f"\nDone: {count} conversations -> {OUT_PATH.relative_to(REPO_ROOT)}")
     print("Next: python3 scripts/render_md_views.py")
 

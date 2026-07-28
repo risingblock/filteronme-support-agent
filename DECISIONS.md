@@ -73,6 +73,20 @@ latency ever matters (i.e., after auto-send).
 Playbooks explicitly define when NOT to answer. `needs-human` tag is rewarded
 behavior. Refunds/angry/money cases stay human-touched indefinitely.
 
+## D12. Historical reply quality is tiered by author (added 2026-07-27)
+Reply authors in the export: Jona De Guzman (1,489 replies — outgoing support
+agent, performance was poor), Eddy Chung (933 — founder, canonical), Rajan Patel
+(16 — assumed non-canonical). Playbook distillation treats **Eddy's replies as
+the gold standard**; Jona's/Rajan's replies are raw material only, cross-checked
+against Eddy's patterns and the docs site, never copied as policy on their own.
+
+## D13. Help docs site is a knowledge source, with staleness dates (added 2026-07-27)
+https://help.filteronme.com (Help Scout Docs, 47 articles) is exported to
+history/docs/ via scripts/export_docs.py (public scrape, no API key needed).
+Eddy says not all articles are current — each export carries `last_updated`
+frontmatter; playbooks state policy themselves and link articles rather than
+deferring to them blindly.
+
 ## Open questions (not yet decided)
 
 - Does Help Scout's reply endpoint support a `draft: true` flag for real API drafts,
