@@ -87,6 +87,23 @@ Eddy says not all articles are current — each export carries `last_updated`
 frontmatter; playbooks state policy themselves and link articles rather than
 deferring to them blindly.
 
+## D14. Codebase is consulted at authoring time only, never at runtime (added 2026-07-27)
+When drafting or revising playbooks, Claude may do read-only consultation of the
+app codebases (~/work/Filteronme-one web app, ~/work/Filteronme-mac-v2.1,
+~/work/FilterOnMeWindows-V2) to verify facts (UI strings, trial logic, billing
+behavior). Verified facts are snapshotted INTO playbooks with the app version
+noted. The runtime support agent never reads source code — keeps guardrail #3's
+attack surface minimal (Eddy's call, confirmed in OPEN-QUESTIONS round 1).
+Re-consult manually after major releases.
+
+## D15. Refund/credit policy per Eddy (2026-07-27, OPEN-QUESTIONS round 1)
+Default: decline-with-policy-link. Cash refunds rare. Non-cash service
+extensions/credits are the STANDARD remedy for support-caused or our-side
+errors. Goodwill discounts only for long-tenured existing customers wronged by
+us — never new customers. Chargeback stance pending a data analysis: query
+Stripe disputes vs. threat tickets to price the follow-through rate (Chargeblast
+costs ~$29/alert; Eddy open to loosening cash refunds if the math says so).
+
 ## Open questions (not yet decided)
 
 - Does Help Scout's reply endpoint support a `draft: true` flag for real API drafts,

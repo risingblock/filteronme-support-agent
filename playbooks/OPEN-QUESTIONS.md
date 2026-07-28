@@ -1,51 +1,63 @@
-# Open questions for Eddy — answer these to finalize the playbooks
+# Playbook decision log — round 1 resolved 2026-07-27
 
-Compiled from all 16 drafts (2026-07-27). Each playbook's "Notes from history"
-has the full context. Answer inline, then we update the playbooks and flip
-their status from draft to approved.
+Eddy answered all 13 questions; facts were then verified against the codebase
+(Filteronme-one web app + Mac v2.1.7 + Windows V2, per D14). All 16 playbooks
+flipped to approved. This file records outcomes, discrepancies found, and
+still-open items.
 
-## Money (highest priority — these gate the biggest topics)
+## Resolved (details live in the playbooks)
 
-1. **Refunds** (refund-request.md): current practice is effectively zero cash
-   refunds. Confirm the agent should default to decline-with-policy-link, and:
-   - Is the non-cash "service extension" goodwill fix (conv 3227032537) a
-     standard alternative for support-caused errors, or a one-off?
-   - Chargeback/legal-demand tickets: draft-and-close automatically (your
-     "close this" shorthand), or always human-first-look?
-   - Fraud/unauthorized-charge claims: still "verify, cancel, no refund"?
-2. **Cancellations** (cancel-subscription.md): may the agent's draft ever say
-   "your subscription has been cancelled," or only after a human confirms in
-   Stripe? (Recommended: never assert until confirmed.)
-3. **Discounts**: zero exceptions, ever? (Playbooks currently say never.)
+1. Refunds: default decline-with-policy-link; service extensions/credits are
+   the standard remedy for our-side errors; cash refunds rare (D15).
+2. Cancellation claims: assert only when read-only Stripe confirms the state.
+3. Discounts: never for new customers; goodwill only for long-tenured
+   customers wronged by us (human-executed).
+4. macOS minimum: current 2.1.x = 13+ (code-verified); old version (docs 124)
+   = 12.4+.
+5. Trial extensions: only when the blocker was our fault; human-executed.
+6. Trial mechanics (code-verified): 7 days from first controls load after
+   login; auto-resets 6 weeks after last trial start; no card. Customer-facing
+   phrasing stays "a couple months" (conservative, never over-promises).
+7. Restore purchase: both UI labels current ("I already have premium" on the
+   trial-ended modal, "Restore purchase" in the side panel); same code-to-
+   subscription-email flow. Code-verified.
+8. Resolution: Mac recent builds output 1080p (upscaled from 720p capture).
+   Windows: see discrepancy below.
+9. Change-email tool: double opt-in, rate-limited, audit-logged. Code-verified
+   — no takeover vector.
+10. Hide-my-email account deletion: customer-first — doc-140 payment
+    verification proves ownership, then human executes.
+11. Auto-collection after cancel: fixed in code since 2025-08-10 (commit
+    e7212c0), with edge-case caveats noted in billing-issue.md.
+13. TONE.md refund pattern: historical; refund-request.md wins. Confirmed.
 
-## Policy contradictions found in your docs
+## Discrepancies — all reconciled in round 2 (2026-07-27, Eddy + repo recon)
 
-4. Minimum macOS: article 96 says macOS 12.4+, article 121 says macOS 13+.
-   Which is right? (tech-issue.md, presales-question.md)
-5. Trial extensions: article 134 says never, but you've granted them for
-   verifiable blockers. Drafts route all extension requests to needs-human —
-   OK, or is there a rule the agent can apply? (trial.md)
-6. Trial reset window: "every few months" vs "a couple months" vs "a month or
-   so" — pick one. And does the trial start at account creation or first app
-   launch? (trial.md)
-7. "Restore purchase" button (article 136, May 2026) vs the "I already have
-   Premium" flow every reply still uses — which is current UI? (premium-not-working.md)
-8. Is 1080p supported on Windows too, or only recent Mac builds? (tech-issue.md,
-   presales-question.md)
+- **Windows resolution**: RECONCILED — code registers a 1080p canvas but
+  captures the camera at 720p, so Eddy's "720p" is the correct quality
+  answer. FilterOnMeWindows-V2 confirmed as the only Windows repo. → tech-issue.md
+- **Trial start**: RECONCILED — starts on first login/controls load, which
+  for nearly all users IS account creation (signup = login from the app).
+  Customer phrasing: "starts when you first log in." → trial.md
+- **Trial reset**: Eddy's "a couple months" kept as phrasing; code truth
+  (6 weeks) recorded. → trial.md
+- **Version map confirmed by repo recon**: current Mac = Filteronme-mac-v2.1
+  (v2.1.7, macOS 13+); the OEP-macos* folders are the legacy 2.0.x codebase
+  (2.0.15 = the docs-124 old version, macOS 12.4+).
+- **Intel Macs**: docs/replies say Apple Silicon required, but the Xcode
+  project builds universal (arm64+x86_64). Presumably a performance-based
+  policy; customer answer stays "M1+ required." Confirm if ever challenged.
 
-## Process decisions
+## Still open
 
-9. The self-serve change-email tool: does it verify old-email ownership? If
-   not, that's an account-takeover vector worth knowing about. (subscription-change.md)
-10. Deleting accounts behind hide-my-email relay addresses when the requester
-    can't be reached at the real address — what's the rule? (login-account.md)
-11. Post-Aug-2025 fix that stops auto-collection after cancel: universal now,
-    or do old accounts still hit the "charged after cancel" bug? (billing-issue.md)
-12. Filterly confusion is accelerating (~26 tickets in H1 2026; Google's AI
-    Overview once conflated the two companies). Worth a website/checkout
-    banner? Not an agent question, but the data says yes. (filterly-confusion.md)
-
-## Tone
-
-13. TONE.md's old "offer a refund when troubleshooting fails" pattern has been
-    marked historical and refund-request.md now wins. Confirm.
+- **Chargeback economics analysis** (gates any refund-policy loosening):
+  needs the Phase 3 restricted read-only Stripe key. Plan: pull disputes,
+  match against threat tickets in history, price follow-through rate vs.
+  Chargeblast (~$29/alert) + dispute fees. → then revisit D15.
+- **Docs site updates worth making** (support-ticket reducers):
+  96/121 (state both macOS minimums + old-version path), 112 (trial starts
+  at first launch), 134 (our-fault extension exception), 84/others still
+  fine. Plus the Windows-uninstall doc gap (install-setup.md).
+- **Filterly website/checkout banner**: confusion accelerating (~26 tickets
+  H1 2026; Google AI Overview once conflated the companies). Eddy to decide —
+  not an agent matter.

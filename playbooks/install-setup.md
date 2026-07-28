@@ -1,7 +1,7 @@
 ---
 topic: install-setup
 volume: 84 of 1957 (4%)
-status: draft-for-eddy-review
+status: approved 2026-07-27
 ---
 
 # Install, setup, and update problems (Mac + Windows)

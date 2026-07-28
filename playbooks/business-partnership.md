@@ -1,7 +1,7 @@
 ---
 topic: business-partnership
 volume: 14 of 1957 (1%)
-status: draft-for-eddy-review
+status: approved 2026-07-27
 ---
 
 # Partnership, B2B, and integration inquiries

@@ -1,7 +1,7 @@
 ---
 topic: billing-issue
 volume: 190 of 1957 (10%)
-status: draft-for-eddy-review
+status: approved 2026-07-27 (facts code-verified against app v2.1.7 + web)
 ---
 
 # Billing issues (charges, declines, payment methods, price)
@@ -66,7 +66,11 @@ the customer never had a FilterOnMe account at all (→ `filterly-confusion`,
   so people test compatibility before paying, refund requests via email get
   no response, all billing goes through the portal. This is Eddy's stated,
   current policy — link it rather than re-explaining it.
-- **No discounts, no exceptions, since at least July 2024** (TONE.md dates
+- **No discounts for new customers, ever. One exception (Eddy, 2026-07-27):
+  goodwill discounts/credits for LONG-TENURED existing customers when we did
+  something wrong (double charge, our-side error). Execution is human-only —
+  draft + `needs-human`.** Historical evidence: declining since at least
+  July 2024 (TONE.md dates
   this "early 2025"; evidence shows Eddy already declining discount requests
   in conv 2661336370, Jul 2024, and again in conv 2802731584, Jan 2025 — same
   wording both times: "We no longer give discounts out, the yearly membership
@@ -209,13 +213,20 @@ copy-paste the generic block onto an unrelated question).
   loaded tickets ("fraud", "reporting this") — he doesn't mirror the
   customer's escalation in tone, just states facts plainly.
 
-**Open questions for Eddy:**
-- Is the Aug 2025 auto-collection-stops-on-cancel fix confirmed working for
-  all cancellations now, or only ones after a certain date — should the
-  agent still expect to see this bug on older accounts?
-- SEPA/Amazon Pay were enabled ad hoc for one blocked customer (conv
-  2816388839) — are these on by default at checkout now, or still
-  case-by-case enablement?
-- Any circumstances (beyond "clear internal error") where a discount or
-  refund exception is still made today, or is TONE.md's "never haggle" rule
-  now absolute with zero exceptions?
+**Resolutions (2026-07-27, Eddy + codebase verification):**
+- Auto-collection fix CONFIRMED in code (commit e7212c0, 2025-08-10): when a
+  cancellation is requested (or a payment is disputed), all *open* invoices
+  get `auto_advance: false`. Caveats verified in code: it triggers on the
+  cancel/dispute transition only, does not void invoices, and there is no
+  `invoice.payment_failed` handler — so pre-Aug-2025 cancellations or edge
+  cases can still surface as "charged after cancel". Those go `needs-human`.
+- Payment methods: checkout uses Stripe Payment Links, so the method list
+  lives in the Stripe dashboard, not code. Exception verified in code: SEPA
+  is offered only to customers geolocated in Austria/Germany (euro payment
+  links). Don't promise any specific wallet; say "Stripe offers several
+  payment methods at checkout — try another one."
+- Discounts (Eddy's ruling, D15): none for new customers; goodwill
+  discount/credit only for long-tenured customers wronged by us, human-only.
+  Two legit coupon mechanisms DO exist in code and are not "discounts to
+  hand out": per-user **referral promo codes** ($10 credit to the referrer)
+  and one campaign coupon (`choctalk`). Never generate or promise codes.

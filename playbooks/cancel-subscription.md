@@ -1,7 +1,7 @@
 ---
 topic: cancel-subscription
 volume: 293 of 1957 (15%)
-status: draft-for-eddy-review
+status: approved 2026-07-27
 ---
 
 # Cancel subscription
@@ -86,7 +86,7 @@ Decision guide:
 
 > @eddy — customer locked out of the email their subscription is under, can't self-serve. Details from ticket: <email(s) mentioned>, last 4 of card if given, <brief reason they can't get in>. Can we cancel on our end?
 
-Tag `needs-human`, do not draft a customer-facing "your subscription has been cancelled" reply until a human confirms it actually happened.
+Tag `needs-human`, do not draft a customer-facing "your subscription has been cancelled" reply until it is actually true. **Eddy's ruling (2026-07-27):** once the read-only Stripe key lands (Phase 3), the agent MAY assert cancellation as fact when Stripe itself shows the subscription `canceled` or `cancel_at_period_end` — a verified read, not a promise. Until then, or when Stripe can't confirm, never assert; escalate.
 
 ## Escalate instead (tag needs-human) when
 
@@ -113,7 +113,7 @@ Tag `needs-human`, do not draft a customer-facing "your subscription has been ca
 - Jona's tone also runs warmer/more exclamation-heavy ("Thank you for reaching out!!", typos like "Thannk you") than Eddy's flatter, clipped style — dial this back per TONE.md when drafting.
 - One conversation (conv 3389345814) shows a customer telling Jona "do not be too Filipino" after repeated canned refund-policy replies — a support-quality/customer-conduct issue independent of cancellation policy, worth flagging to Eddy directly rather than folding into this playbook.
 - **Open questions for Eddy:**
-  1. Should a draft reply ever say "your subscription has been cancelled" as a completed fact, or should that always wait until a human has actually confirmed it in Stripe? Eddy historically said it in the same breath as doing it; today's process separates the two, but there's no written rule the agent can follow yet.
-  2. Is "hold the no-refund line even under a formal legal/chargeback threat, and close further refund-requesting tickets" (conv 3196455088) a standing policy the agent should treat as settled, or was that a one-off call? Given D11 (money/angry cases stay human-touched indefinitely), the safe default is to keep escalating every refund-adjacent and legal-threat ticket rather than have the agent auto-decline on Eddy's behalf — please confirm.
+  1. RESOLVED (2026-07-27): the agent may state cancellation as fact only when read-only Stripe confirms it (`canceled` / `cancel_at_period_end`); otherwise never assert, escalate.
+  2. RESOLVED (2026-07-27): legal/chargeback-threat tickets stay `needs-human` pending the chargeback-economics analysis — see refund-request.md Notes and DECISIONS.md D15.
   3. Once the Stripe read-only lookup (Phase 3) is live, should trial-vs-paid and "which email did you pay with" be resolved automatically from Stripe instead of asked of the customer?
   4. The Filterly-confusion disclaimer appears in nearly every reply today — worth a one-time automated check (matching ticket text / sender domain) instead of boilerplate repeated in every draft?

@@ -1,7 +1,7 @@
 ---
 topic: receipt-invoice
 volume: 9 of 1957 (<1%)
-status: draft-for-eddy-review
+status: approved 2026-07-27
 ---
 
 # Receipts, invoices, and custom quotes

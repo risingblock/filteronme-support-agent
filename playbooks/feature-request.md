@@ -1,7 +1,7 @@
 ---
 topic: feature-request
 volume: 42 of 1957 (2%)
-status: draft-for-eddy-review
+status: approved 2026-07-27
 ---
 
 # Feature requests & suggestions

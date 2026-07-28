@@ -1,7 +1,7 @@
 ---
 topic: subscription-change
 volume: 32 of 1957 (2%)
-status: draft-for-eddy-review
+status: approved 2026-07-27 (facts code-verified against app v2.1.7 + web)
 ---
 
 # Switching plans, changing email, restoring access
@@ -183,11 +183,13 @@ customer-facing ask for more info if key details are missing):**
   self-serve tool + doc-140 checklist as current policy; the older manual
   "just tell me old/new email" replies (conv 2821050717, 2845995716,
   2594738110-era) are superseded.
-- Open question for Eddy: does the change-email self-serve tool itself
-  require ownership verification of the *old* email, or does it just accept
-  a new email unconditionally? If the latter, it may be a bigger
-  account-takeover surface than the manual process it replaced — worth
-  confirming before this playbook goes live.
+- RESOLVED by codebase verification (2026-07-27): the change-email tool is
+  **double opt-in** — a 6-digit code to the OLD email (proves ownership),
+  then a second code to the NEW email (proves control), only then does Stripe
+  update. Active subscriptions only; rate-limited (5/15min per IP, 3/60min
+  per email); every transfer audit-logged to `SubscriptionTransferLog`; and
+  it refuses if the new email already has an active subscription. Safe to
+  point customers at confidently.
 - 2024 had at least two ad hoc discount coupons (50MAY2024, and a per-customer
   20% code). TONE.md and conv 3155879524 make clear this stopped; flagged so
   Eddy can confirm no exceptions remain live.

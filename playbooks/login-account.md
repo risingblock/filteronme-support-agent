@@ -1,7 +1,7 @@
 ---
 topic: login-account
 volume: 84 of 1957 (4%)
-status: draft-for-eddy-review
+status: approved 2026-07-27 (facts code-verified against app v2.1.7 + web)
 ---
 
 # Login & Account Access
@@ -213,9 +213,12 @@ requests.
   reply is overused as a generic first response to deletion and lost-access
   tickets where it doesn't fit — a poor pattern per DECISIONS.md D12, don't
   copy it as policy.
-- Open question for Eddy: no resolved policy on deleting an account tied to a
-  "hide my email" relay address where the requester can't be reached at the
-  account's actual email (conv 3360244901) — worth a explicit ruling.
+- RESOLVED (Eddy, 2026-07-27): for accounts behind "hide my email" relay
+  addresses, be customer-first — if they can prove ownership (doc 140's
+  payment-verification checklist: last charge date/amount, card last-4 +
+  brand, name on card), deletion/cancellation proceeds. Execution is
+  human-only; the agent drafts the verification-request reply and tags
+  `needs-human` (conv 3360244901).
 - The one-time 100%-off coupon workaround for failed email transfers (conv
   3314040890/3335046178) is ad hoc, Eddy-issued case by case, and not standing
   policy — the agent should never generate or promise a coupon code itself.

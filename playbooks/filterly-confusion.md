@@ -1,7 +1,7 @@
 ---
 topic: filterly-confusion
 volume: 56 of 1957 (3%)
-status: draft-for-eddy-review
+status: approved 2026-07-27
 ---
 
 # "Filterly" isn't us

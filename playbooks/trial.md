@@ -1,7 +1,7 @@
 ---
 topic: trial
 volume: 48 of 1957 (2%)
-status: draft-for-eddy-review
+status: approved 2026-07-27 (facts code-verified against app v2.1.7 + web)
 ---
 
 # Free trial: cancelling, "will I be charged?", expired, extend, and free-version confusion
@@ -36,11 +36,15 @@ watermarked free version and the 7-day premium trial.
   2893864676, conv 3135356291, conv 2942075487, conv 2874075623-adjacent
   wording). This is the single most-repeated fact in the whole topic and is
   safe to state with confidence.
-- **The trial is 7 days and starts on account creation**, per Eddy (conv
-  2646025175: "the trial starts when you create an account"). In practice
-  several customers report it starting the moment they launch the app,
-  before they felt "ready" (conv 2874955077) — flag this as a real product
-  behavior gap, not customer error, but don't promise a fix.
+- **The trial is 7 days and starts when the customer first logs in** (the
+  app's controls or the upgrade page loading triggers it) — for nearly all
+  users that's the same moment as account creation, since signing up IS
+  logging in from the app. Code-verified 2026-07-27: `trialStartedAt` is set
+  lazily by the first premium check, not by the signup event itself. This
+  reconciles Eddy's "starts when you create an account" (conv 2646025175)
+  with launch-triggered reports (conv 2874955077). Customer-facing phrasing:
+  "your 7-day trial starts when you first log in." No credit card involved:
+  the trial is a DB timestamp, never a Stripe trial.
 - **There are two different free things — don't conflate them:**
   - *Free version*: permanent, has a watermark, no time limit, no account
     needed (conv 2328316599 — Eddy: "No time limit is enforced at the
@@ -50,13 +54,15 @@ watermarked free version and the 7-day premium trial.
   Several tickets are really "I didn't realize the watermark-free trial was
   time-limited" (conv 2632623812-style, conv 2454589821) — clarify which one
   they're on.
-- **We do not extend or reset trials as standing policy** (docs 134 — "We
-  are unable to extend any free trials... Please consider subscribing").
-  The current default reply (Jona, 2025–2026) is a polite no plus "the trial
-  resets automatically after some time" — do not commit to a specific
-  duration; Eddy has given inconsistent numbers across tickets ("a couple of
-  months," docs 134's "every few months," "a month or so" in conv
-  3347988527). Say "after some time" / "after a while," not a number.
+- **Eddy's ruling (2026-07-27): trial extensions ONLY when the blocker was our
+  fault** (a bug, a broken installer, our setup flow failing). Not-our-fault
+  reasons (busy week, travel, "wasn't ready") get a polite no per docs 134.
+  The extension itself is a backend action — draft the reply, tag `needs-human`.
+  Baseline (docs 134): "We are unable to extend any free trials... Please
+  consider subscribing."
+  Trial-reset window, settled by Eddy (2026-07-27): **"a couple months"** —
+  use that phrase consistently (supersedes the mixed numbers in old replies
+  and docs 134's "every few months").
 - **In practice, Eddy personally overrides this often** — this is the
   central tension in the topic and the reason it needs a human in the loop:
   - 2023–2024 (Eddy directly answering): routinely granted manual free-
@@ -163,13 +169,12 @@ Confused about watermark/free version vs. the timed trial:
   pricing without clarifying the free-version-vs-trial distinction. Don't
   treat this one as a model reply; flagging for Eddy to confirm which
   product tier that customer was actually on.
-- Open question for Eddy: how long does a trial actually take to "reset"?
-  Docs say "every few months," you've told customers "a couple of months"
-  and "a month or so" in different tickets. Worth picking one true number (or
-  confirming there isn't one) so the agent doesn't have to hedge.
-- Open question for Eddy: does the trial start at account creation or at
-  first app launch? Your 2024 answer (conv 2646025175) says account
-  creation; a 2025 customer's account was activated the instant the app
-  launched, before any real usage (conv 2874955077). If launch-triggered
-  activation is expected behavior, it's worth a one-line mention in docs 112
-  so this stops generating "it started without me doing anything" tickets.
+- RESOLVED by codebase verification (2026-07-27): the reset window is exactly
+  **6 weeks (42 days) since the last trial start** — a fresh 7-day trial
+  auto-starts on the next premium check after that. Customer-facing phrasing
+  per Eddy: say **"a couple months"** — it's deliberately conservative (6
+  weeks < 2 months), so it can never over-promise. Never state "6 weeks" or
+  the auto-reset mechanics to customers; that invites gaming.
+- RESOLVED: trial starts at first app launch/controls load, not account
+  creation (see Policy). Doc 112 could mention this to prevent "it started
+  without me" tickets.

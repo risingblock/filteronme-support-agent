@@ -1,7 +1,7 @@
 ---
 topic: premium-not-working
 volume: 86 of 1957 (4%)
-status: draft-for-eddy-review
+status: approved 2026-07-27 (facts code-verified against app v2.1.7 + web)
 ---
 
 # Premium not working (paid but watermark/lock still shows)
@@ -152,13 +152,16 @@ account facts plainly.
   — for trial users who haven't upgraded yet, not this topic's core case
   (updated Jan 20, 2026).
 - https://help.filteronme.com/article/136-restore-purchase-or-access-existing-subscription
-  — newer doc (updated May 7, 2026) describing a "Restore purchase" button in
-  the bottom-right corner. **Flag for Eddy:** no reply in the export actually
-  points customers to this button by that name — everyone (including Jona as
-  recently as Jul 23, 2026) still says "I already have a premium account."
-  Confirm whether these are the same button renamed, two different features,
-  or the doc is ahead of what's actually shipped, before this playbook tells
-  the agent which name to use.
+  — RESOLVED by codebase verification (2026-07-27, app v2.1.7 / web controls):
+  **both names are current, same underlying flow.** The trial-expired modal's
+  button says "I already have premium"; the side panel link says "Restore
+  purchase". Either opens the restore dialog: enter the email the subscription
+  is under → a 6-digit code is emailed **to the subscription's email** (not
+  the requester's) → verify → "close and reopen the app". Only works for an
+  *active* subscription; it's blocked if the current login already has one.
+  If the sub was previously transferred away, the dialog says where it went
+  (censored). Use whichever name matches where the customer is: trial-ended
+  screen → "I already have premium"; otherwise → "Restore purchase".
 - filteronme.com/downloads (reinstall/upgrade), filteronme.com/billing
   (payment method update).
 
@@ -176,8 +179,11 @@ account facts plainly.
   then answer with the specific fact ("I see your email is premium: X" /
   "your payment failed on Aug 20"). The playbook's "What to check first"
   step exists specifically to prevent repeating Jona's mistake.
-- **Open question:** the "Restore purchase" vs. "I already have a premium
-  account" naming — see Doc links above.
+- RESOLVED: "Restore purchase" / "I already have premium" naming — see Doc
+  links above. Also verified in code: premium on a device = `isPremium` on the
+  user row OR an unexpired `FreePremium` row (that's the mechanism behind
+  goodwill extensions), with a self-healing Stripe re-check when a
+  subscriptionId exists — so "reopen the app / re-login" genuinely re-syncs.
 - **Open question:** several tickets in this bucket are really about *missing
   filters* (Smile/Hair/Beard/Makeup not appearing) rather than the watermark
   (conv 2952658652, conv 3323529036). Worth checking whether that's a

@@ -54,6 +54,10 @@ drafts-only. `caffeinate` if it bugs us. Auto-send is the trigger to move to a s
 - Our app: tiny read-only internal endpoint (or read-replica SQL) for account
   lookups. Browser automation only if truly no API path — last resort, not foundation.
 - v1 rule: agent reads everywhere, writes nowhere except Help Scout notes.
+- Once the Stripe key exists: run the **chargeback economics analysis**
+  (disputes vs. threat tickets, follow-through rate, cost incl. Chargeblast
+  ~$29/alert) to decide whether selectively refunding threat cases beats
+  holding the line — see D15 and playbooks/OPEN-QUESTIONS.md.
 
 ## Phase 4 — Hetzner + graduated autonomy (half a day, then ongoing)
 

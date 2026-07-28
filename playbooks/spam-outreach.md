@@ -1,7 +1,7 @@
 ---
 topic: spam-outreach
 volume: 217 of 1957 (11%)
-status: draft-for-eddy-review
+status: approved 2026-07-27
 ---
 
 # Spam & Outreach (recognize it, close it, don't engage)

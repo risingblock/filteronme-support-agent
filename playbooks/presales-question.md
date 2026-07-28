@@ -1,7 +1,7 @@
 ---
 topic: presales-question
 volume: 102 of 1957 (5%)
-status: draft-for-eddy-review
+status: approved 2026-07-27 (facts code-verified against app v2.1.7 + web)
 ---
 
 # Pre-sales questions: compatibility, requirements, pricing, trial
@@ -38,9 +38,10 @@ live lookup. The two things that DO depend on their setup:
 - Desktop only: **Mac and Windows**. No mobile app (iOS/Android), no
   ChromeOS, no Linux (conv 2324657266, conv 2689208824, conv 3268254770,
   docs 85). This has been stable across the entire history sample, 2023–2026.
-- Mac: most Macs on **macOS 12.4+** work; requires Apple Silicon (M1+) —
-  Intel Macs are not supported and there's no Rosetta workaround (conv
-  2782543924, docs 96).
+- Mac: current version requires **macOS 13+**; an older downloadable version
+  supports macOS 12.4+ (docs 124) — Eddy, 2026-07-27, resolving the docs
+  96 vs 121 conflict. Requires Apple Silicon (M1+) — Intel Macs are not
+  supported and there's no Rosetta workaround (conv 2782543924, docs 96).
 - Windows: min **8GB RAM**, **~3.8GHz i3 or better**; tested working on a
   budget machine (Acer Aspire 3 A314-36P-35UU) (docs 96, last updated
   2025-07-23).
@@ -119,16 +120,17 @@ live lookup. The two things that DO depend on their setup:
   2024–2026).
 - **Payment methods**: no PayPal; accepts major cards and wallets (Apple
   Pay, Google Pay, Amazon Pay, Stripe Link) via Stripe (conv 3118611313,
-  docs 118). Germany-specific: SEPA direct debit is available on the
-  upgrade page, but only shows for users physically in Germany with VPN
-  off (conv 3170098392, added Dec 2025).
+  docs 118). SEPA direct debit shows on the upgrade page only for users
+  geolocated in **Austria or Germany** (VPN off) — code-verified 2026-07-27
+  (conv 3170098392). Note: the exact wallet list is configured in the Stripe
+  dashboard, not code — "Stripe offers several payment methods at checkout"
+  is the safe phrasing.
 - **Privacy**: FilterOnMe cannot see/access the camera feed itself, per Eddy
   (conv 3365635761) — point privacy-conscious askers to
   filteronme.com/privacy rather than drafting a custom assurance letter.
 
 ### Open questions (can't verify from history — ask Eddy / escalate)
-- Whether the 1080p fix (conv 3244632632) is Mac-only or also applies to a
-  parallel Windows update — all three 1080p tickets sampled were Mac users.
+- RESOLVED (Eddy, 2026-07-27): the 1080p fix is Mac-only; **Windows is 720p**.
 - Whether virtual-camera sources in general (beyond DroidCam) are
   supported — conv 2875366915 has no reply on record.
 

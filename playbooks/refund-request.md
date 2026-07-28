@@ -1,7 +1,7 @@
 ---
 topic: refund-request
 volume: 236 of 1957 (12%)
-status: draft-for-eddy-review
+status: approved 2026-07-27 (chargeback-economics analysis pending — see Notes)
 ---
 
 # Refund requests
@@ -79,11 +79,11 @@ almost exactly.** This is the most important finding for this playbook:
   Eddy's own shorthand notes to Jona: *"yes close this"* (conv 3195037757),
   *"close this, it is a refund request"* (conv 3219400744).
 
-- **The one documented non-cash exception:** when Filteronme's own mistake
-  (immediate backend cancellation) cut off access a customer had just paid a
-  full year for, Eddy granted **free service through the end of the paid
-  term** — not a cash refund (conv 3227032537). This was a goodwill fix for an
-  operational error, not a refund-policy exception.
+- **Non-cash service extensions / credits are the STANDARD remedy for
+  support-caused or our-side errors** (Eddy, 2026-07-27): when our mistake cost
+  a customer paid access (e.g. immediate backend cancellation, conv 3227032537),
+  draft a service-extension/credit offer, not a cash refund. Execution is still
+  human-only; tag `needs-human`.
 - **The one documented correction of over-granting:** Jona once refunded a
   customer based solely on their claim of "as discussed on our phone call"
   (there is no phone support). Eddy's internal note afterward: *"this should
@@ -212,20 +212,19 @@ again):**
   troubleshooting fails" reflects that older era, not 2025–2026 practice —
   this is worth flagging to Eddy as a possible TONE.md update.
 
-**Open questions for Eddy:**
+**Eddy's rulings (2026-07-27, see DECISIONS.md D15):**
 
-1. TONE.md still lists proactively offering a refund as a "healthy pattern."
-   Given 2025–2026 practice shows this essentially never happens anymore,
-   should that guidance be narrowed or removed for `refund-request` specifically?
-2. Is the service-extension goodwill fix (conv 3227032537) a one-off for
-   support-caused errors, or should the agent draft that as a standard
-   alternative whenever a refund is declined but the complaint is legitimate?
-3. For chargeback/legal-demand tickets, should the agent draft-and-close
-   automatically (matching your "close this" shorthand), or always tag
-   `needs-human` for a first look before closing?
-4. Does the 2024-era "refund the most recent charge, not retroactive months"
-   line still apply at all now that the default is zero, or is that rule
-   obsolete?
-5. For fraud/unauthorized-charge claims, is "verify identity, cancel, no
-   refund" still the right response, or should some of these get flagged for
-   deeper review given real card fraud carries chargeback risk for the business?
+1. Default decline-with-policy-link CONFIRMED. TONE.md's old proactive-refund
+   pattern is historical; this playbook wins.
+2. Service extensions/credits: STANDARD remedy for our-side errors (folded into
+   Policy above).
+3. Chargeback/legal-demand tickets: keep `needs-human` for now. PENDING
+   ANALYSIS: once the Stripe read-only key lands (Phase 3), measure how often a
+   chargeback *threat* becomes an actual dispute, and what disputes actually
+   cost (fee + ~$29/alert Chargeblast). Eddy is open to selectively granting
+   refunds to high-follow-through-risk cases if the math favors it — until that
+   analysis exists, the agent never grants, only escalates.
+4. "Most recent charge only" rule: moot while default is decline; revisit only
+   if the chargeback analysis loosens policy.
+5. Fraud/unauthorized-charge claims: verify, cancel, decline — but always
+   `needs-human` (real card fraud carries dispute risk).

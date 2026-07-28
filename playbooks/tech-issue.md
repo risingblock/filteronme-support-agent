@@ -1,7 +1,7 @@
 ---
 topic: tech-issue
 volume: 340 of 1957 (17%)
-status: draft-for-eddy-review
+status: approved 2026-07-27 (facts code-verified against app v2.1.7 + web)
 ---
 
 # App malfunctions: camera not found, black/blank screen, crashes, and specific-app failures
@@ -45,7 +45,7 @@ Once Phase 3 (Stripe) lands:
 - **Standard fix ladder, cheapest step first** (evidenced across dozens of Eddy replies, and formalized in help.filteronme.com/article/105): confirm Filteronme is open *before* the main app (Windows only — Mac 2.1+ no longer requires the main app to stay open, conv 3125342687) → change camera selection and change it back, or unplug/replug the camera → reboot the app → Mac-only: toggle camera permission off/on, then toggle camera extension off/on in System Settings → reinstall the camera extension from Filteronme's Advanced menu → reboot computer → full uninstall/reinstall (conv 2386659864, 2397252852, article 123).
 - **Always ask 1-2 isolating questions before prescribing fixes** when the ticket doesn't already answer them — OS/version, does it happen in other apps, did it work before (conv 2809512589, 2822592771, 2757491615, 3131216372). Eddy essentially never fires the full fix ladder on the first reply without at least confirming OS/version first.
 - **4K is explicitly not supported, by design** — resource cost is too high for most customers' machines, and call apps like Zoom recompress video anyway so the gain is marginal (conv 2923620793, note from Eddy 2025-05-02/05). This is stated as durable policy, not "not yet" — don't imply a 4K roadmap unless Eddy has said so elsewhere.
-- **1080p support has been improving** — as of the Aug/Sep 2025 Mac release "fully supports 1080p" (note in conv 3023640356); earlier in 2024 a customer was told Mac 1080p output wasn't confirmed (conv 2695090226). Confirm current version before promising 1080p works — don't assume it's true for older installs.
+- **1080p: recent Mac builds only. Windows is capped at 720p** (Eddy, 2026-07-27). On Mac, the fix arrived with the Aug/Sep 2025 release (conv 3023640356) — customers on older Mac installs need to update first. Never promise 1080p on Windows.
 - **Resolution complaints need visual proof before being treated as a bug.** The OBS position/size numbers (e.g. "640x360") are frequently mistaken by customers for the resolution — that is not a Filteronme bug (conv 3023640356). Ask for a webcamtests.com screenshot of the Filteronme camera output, and a screenshot of the same camera without Filteronme, before concluding it's a real regression.
 - **Elgato/Cam Link and other capture-card issues are acknowledged, real, and unresolved** — Eddy's honest answer is that these are "technically difficult problems" with no timeline, not a promise of an imminent fix (conv 2657432637). Don't imply Elgato support is coming unless told otherwise.
 - **Green/purple/discolored screen tied to one specific camera is usually a camera-input problem, not Filteronme** — but verify with a different webcam and a cable/USB-direct connection check before concluding that, and don't accuse the customer of anything (conv 3253230468 — this became a long, frustrating thread partly because "try a different camera" was pushed repeatedly without ever getting a clean isolation test; ask for the webcamtests.com screenshot early instead of iterating one variable at a time over days).
@@ -137,8 +137,8 @@ Hardware-limited / no fix available, honest close:
 - **Mirror-camera-off lag**: one customer (conv 2822592771) reported the camera becomes laggy specifically when the "Mirror camera" setting is turned off, and needs it off because call apps already mirror by default. Thread ended without resolution or a note from Eddy — unclear if this is a known/reproduced bug. Worth checking with Eddy before including in the fix ladder as a known issue.
 
 **Open questions for Eddy:**
-- Article 96 (macOS 12.4+) and article 121 (macOS 13 minimum) directly contradict each other on minimum macOS version. Which is current?
-- Is 1080p output now fully supported on both Mac and Windows, or only the newer Mac releases? A 2024 ticket (conv 2695090226) went unanswered on this exact question.
+- RESOLVED (Eddy, 2026-07-27): both docs are right about different versions — current FilterOnMe 2.1.x requires **macOS 13+**; the old downloadable version (docs 124) supports **macOS 12.4+**. Cite both paths: "the latest version needs macOS 13+; on older macOS you can use the previous version here: <docs 124 link>". (Docs 96/121 should be updated to say this explicitly.)
+- RESOLVED (Eddy + code, 2026-07-27): customer-facing answer — **1080p on recent Mac builds; 720p quality on Windows**. The full picture from code: Windows (`FilterOnMeWindows-V2/main.cpp:98`) registers a 1920x1080 virtual-camera canvas but captures the physical camera at 720p first (`camera_win.cpp:43`), so effective quality is 720p — Eddy's answer and the code are both right (canvas ≠ capture). Mac v2.1.7 offers selectable 720p/1080p output but capture is pinned to hd1280x720 (`Extension/ExtensionProvider.swift:1463`), so Mac 1080p is upscaled — explains "blurry even without filters" complaints; never promise 1080p-source detail on either OS. Version map for old-Mac questions: current = Filteronme 2.1.x (macOS 13+); old downloadable = 2.0.15 (docs 124, macOS 12.4+).
 - Is the 2.1.5 flicker bug considered fully resolved by 2.1.6, or still open for some hardware (per Mona Lee's follow-up)?
 - Is there any plan (even directional, no date) for Elgato/Cam Link/capture-card support, so the agent can give a slightly warmer "on our radar" answer instead of "technically difficult, no timeline"?
 - The mirror-off lag report (conv 2822592771) — reproduced/known, or a one-off environmental issue?

@@ -30,7 +30,9 @@ Eddy's historical replies are evidence for policy; Jona's/Rajan's are not (D12).
 
 Unmatched/unclear tickets: tag `needs-human`, stop. Escalation is success (D11).
 
-All playbooks are `status: draft-for-eddy-review` until Eddy approves them —
-see OPEN-QUESTIONS.md for the policy decisions each draft is waiting on.
+All 16 playbooks were approved 2026-07-27 after Eddy answered
+OPEN-QUESTIONS.md (kept as the decision log) and key facts were verified
+against the codebase (app v2.1.7 + web, per D14). Re-verify after major
+releases.
 Conversation ids cited as (conv NNN) refer to Help Scout conversations; find
 the local copy with `grep -rl "id: NNN" history/md/`.
