@@ -76,14 +76,33 @@ the TOOL re-verifies From == subscription email server-side, only sets
 cancel_at_period_end, audit-logs, and sits behind an eve approval gate even
 then.
 
-## eve layout (candidate — validate against eve docs, it's young)
+## eve layout (updated 2026-07-27 after reading the eve docs — it's beta)
+
+The agent is a STANDALONE Vercel project deployed from THIS repo (not inside
+filteronme-one). Env isolation is the point (D20 made physical):
 
 ```
-filteronme-one/agents/support/
-  AGENT.md            ← adapted from prompts/draft_reply.md
-  skills/             ← playbooks/*.md copied at deploy (script in this repo)
-  tools/lookups.ts    ← the whitelist above
+filteronme-support-agent/          ← this repo, pushed to private GitHub
+  agent/
+    instructions.md                ← adapted from prompts/draft_reply.md
+    agent.ts                       ← defineAgent({ model: 'anthropic/claude-sonnet-5' })
+    skills/                        ← symlink/copy of playbooks/ (no sync step)
+    tools/
+      get_account_by_email.ts      ← the D20 whitelist, one file per tool
+      get_subscription_by_email.ts
+      get_recent_charges.ts
+      get_ticket_history.ts
+  playbooks/ prompts/ scripts/ …   ← the brain, as today
 ```
+
+- **Agent project env vars (its own Vercel project):** STRIPE_RESTRICTED_KEY
+  (read-only) + SUPPORT_DB_READONLY_URL (Postgres role: SELECT only on the
+  needed tables) + INTERNAL_WEBHOOK_SECRET. Nothing else. Models go through
+  Vercel AI Gateway via OIDC — no provider API key at all.
+- **The agent writes NOTHING.** filteronme-one's webhook POSTs the ticket to
+  the agent's /eve/v1/session endpoint and persists the returned draft
+  itself. Agent blast radius = read-only lookups, full stop.
+- history/ stays gitignored → never reaches GitHub/Vercel.
 
 Human-approval gate on: sending anything, closing as spam, any future write.
 If eve friction exceeds a day of fighting it → fallback: one background
