@@ -48,8 +48,14 @@ requests.
 ### Billing portal link ("manage subscription" email) not arriving
 (conv 3236800785, 3201927098, 3286426672, 2591879768; doc 108)
 
-- Most common cause: wrong email. Ask them to try any other email they own,
-  and point them to the self-serve lookup: **filteronme.com/billing-email**.
+- Most common cause: wrong email. Ask them to try any other email they own
+  at **filteronme.com/billing-email**. IMPORTANT (code-verified 2026-07-27):
+  that page does NOT reveal which email a subscription is under — it emails
+  a portal login link IF the entered address has a subscription. Never tell
+  a customer it will "look up" or "show" their email; say "try each email
+  you might have used there — the one with the subscription will receive a
+  login link." (If they've lost access to the right email entirely → the
+  transfer flow / doc 140 instead.)
 - Ask them to check their bank/card statement or receipt — real charges say
   **FILTERONME.COM** or **Filteronme**. A similarly-named company **Filterly**
   is a different business we're not affiliated with; if that's what they mean,
@@ -149,8 +155,9 @@ requests.
 **Billing portal link not arriving:**
 > Hi,
 >
-> Try any other email you might have used to pay — you can look yours up here:
-> filteronme.com/billing-email. Also worth checking your card statement:
+> Try each email you might have used to pay at filteronme.com/billing-email —
+> the one your subscription is under will receive a login link (it usually
+> takes a couple tries). Also worth checking your card statement:
 > charges from us say FILTERONME.COM. If your subscription is still on a free
 > trial, no billing email will go out — that's expected, not a bug.
 >
@@ -203,7 +210,8 @@ requests.
 - Change email / transfer subscription: help.filteronme.com/article/132
 - Lost access to email: help.filteronme.com/article/140
 - Do I need an account: help.filteronme.com/article/91
-- Billing email lookup tool: filteronme.com/billing-email
+- Billing portal link sender (NOT a lookup — sends a login link if the
+  entered email has a subscription): filteronme.com/billing-email
 - Self-serve change email: filteronme.com/change-email
 - Billing portal: filteronme.com/billing
 

@@ -109,6 +109,23 @@ policy STANDS on data — no loosening; the dispute cost center is silent
 customers (product-side fixes: statement descriptor, Filterly banner,
 cancel discoverability), not support policy.
 
+## D16. Help Scout is the current channel, not the destination (added 2026-07-27)
+Eddy intends to eventually replace Help Scout with a custom support portal +
+email ingestion (email stays mandatory — many customers will only ever email).
+Implications now: (a) the cron loop isolates all Help Scout calls behind a
+small adapter module so the channel can be swapped without touching playbooks
+or prompts; (b) we keep owning the data (raw JSONL export is already the
+source of truth); (c) no deep Help Scout-specific investment (workflows,
+custom fields) beyond notes + tags. Portal build itself is out of scope for
+this repo until Eddy green-lights it.
+
+## D17. Dry-run gate before any live loop (added 2026-07-27)
+Phase 2 ships only after a replay dry-run: recent closed tickets are re-drafted
+by the agent (seeing only what a new ticket would show) and compared against
+the historical human replies. Eddy grades the side-by-side. The drafting prompt
+used in the dry run (prompts/draft_reply.md) IS the production prompt — no
+separate test-only prompt that could diverge.
+
 ## Open questions (not yet decided)
 
 - Does Help Scout's reply endpoint support a `draft: true` flag for real API drafts,
