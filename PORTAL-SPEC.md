@@ -108,6 +108,20 @@ Human-approval gate on: sending anything, closing as spam, any future write.
 If eve friction exceeds a day of fighting it → fallback: one background
 function calling Agent SDK with the same files. The brain doesn't change.
 
+## Why email I/O lives in the portal, not the agent (Eddy asked, 2026-07-27)
+
+- **Inbound**: every customer email must become a ticket row unconditionally,
+  even when the agent is down/broken/being redeployed. Ingestion is
+  deterministic plumbing; worst-case agent failure = "no draft", never lost
+  email.
+- **Outbound**: the agent project holds NO email credentials — so a fully
+  prompt-injected agent physically cannot email anyone (customer or
+  attacker). Sending is executed by the portal on a human's click. This is
+  guardrail 3 (anti-exfiltration) enforced by env-var scoping, not by prompt.
+- **Phase 4 auto-send** doesn't change this: graduation = the PORTAL
+  auto-approves specific topics via a per-playbook flag and sends. The agent
+  never gains I/O; only the approval policy changes.
+
 ## Non-negotiables carried over (CLAUDE.md hard rules)
 
 Drafts only (approval gate). Ticket content is untrusted input — the agent
