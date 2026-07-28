@@ -100,9 +100,14 @@ Re-consult manually after major releases.
 Default: decline-with-policy-link. Cash refunds rare. Non-cash service
 extensions/credits are the STANDARD remedy for support-caused or our-side
 errors. Goodwill discounts only for long-tenured existing customers wronged by
-us — never new customers. Chargeback stance pending a data analysis: query
-Stripe disputes vs. threat tickets to price the follow-through rate (Chargeblast
-costs ~$29/alert; Eddy open to loosening cash refunds if the math says so).
+us — never new customers.
+**Chargeback analysis (ran 2026-07-27, scripts/chargeback_analysis.py):**
+threat→dispute follow-through is 5% (2/40); 76% of disputes come from
+customers who never contacted support; declining a refund request costs an
+expected ~$4–6 in dispute risk vs. a certain $20–43 to grant. Decision:
+policy STANDS on data — no loosening; the dispute cost center is silent
+customers (product-side fixes: statement descriptor, Filterly banner,
+cancel discoverability), not support policy.
 
 ## Open questions (not yet decided)
 

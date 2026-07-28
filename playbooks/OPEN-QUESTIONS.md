@@ -50,10 +50,11 @@ still-open items.
 
 ## Still open
 
-- **Chargeback economics analysis** (gates any refund-policy loosening):
-  needs the Phase 3 restricted read-only Stripe key. Plan: pull disputes,
-  match against threat tickets in history, price follow-through rate vs.
-  Chargeblast (~$29/alert) + dispute fees. → then revisit D15.
+- ~~Chargeback economics analysis~~ DONE 2026-07-27: 5% threat
+  follow-through, 76% of disputes are from silent never-contacted-support
+  customers, declining beats granting ~5–10× on expected cost. Policy stands;
+  findings baked into refund-request.md and D15. Report:
+  history/analysis/chargeback_report.json.
 - **Docs site updates worth making** (support-ticket reducers):
   96/121 (state both macOS minimums + old-version path), 112 (trial starts
   at first launch), 134 (our-fault extension exception), 84/others still

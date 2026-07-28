@@ -218,12 +218,23 @@ again):**
    pattern is historical; this playbook wins.
 2. Service extensions/credits: STANDARD remedy for our-side errors (folded into
    Policy above).
-3. Chargeback/legal-demand tickets: keep `needs-human` for now. PENDING
-   ANALYSIS: once the Stripe read-only key lands (Phase 3), measure how often a
-   chargeback *threat* becomes an actual dispute, and what disputes actually
-   cost (fee + ~$29/alert Chargeblast). Eddy is open to selectively granting
-   refunds to high-follow-through-risk cases if the math favors it — until that
-   analysis exists, the agent never grants, only escalates.
+3. Chargeback/legal-demand tickets: keep `needs-human`. The economics
+   analysis RAN (2026-07-27, scripts/chargeback_analysis.py, full report in
+   history/analysis/chargeback_report.json) and settled it:
+   - **95% of chargeback threats are bluffs** — of 40 threat conversations
+     (2023–2026), only 2 became actual Stripe disputes.
+   - **76% of all disputes (78/103) come from customers who never contacted
+     support at all** — no refund policy can prevent those; they're a
+     product/statement-descriptor problem, not a support problem.
+   - Expected cost of declining a refund request ≈ 5.5% dispute-follow-through
+     × (~$58 avg dispute + $15 fee + ~$29 Chargeblast) ≈ **$4–6**, vs. a
+     certain **$20–43** to grant one. Declining wins ~5–10×.
+   - Therefore: **decline-with-policy-link is data-optimal, not just policy.**
+     Never soften a draft because a ticket threatens a chargeback.
+   - Caveat for agents reading Stripe: the ~50 refunds/yr visible there are
+     mostly Chargeblast auto-prevention + duplicate/fraud housekeeping (92 of
+     121 have no reason field, API-issued) — do NOT cite them as evidence
+     that support grants refunds.
 4. "Most recent charge only" rule: moot while default is decline; revisit only
    if the chargeback analysis loosens policy.
 5. Fraud/unauthorized-charge claims: verify, cancel, decline — but always
