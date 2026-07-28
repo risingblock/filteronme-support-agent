@@ -16,11 +16,14 @@ decided and why — do not relitigate those without new information.**
   some articles stale — check `last_updated`).
 - In historical replies: **Eddy Chung (founder) is the canonical voice**; replies
   by Jona De Guzman / Rajan Patel (former support) are not authoritative (see D12).
-- Current status: **Phase 0 done** (1,957 conversations exported + rendered with
-  topic frontmatter; docs site exported). **Phase 1 drafted**: 16 playbooks +
-  TONE.md in `playbooks/`, all `status: draft-for-eddy-review` — Eddy must answer
-  `playbooks/OPEN-QUESTIONS.md` before any go live. Next: Phase 2 (drafts-only
-  cron loop) once playbooks are approved.
+- Current status: **Phases 0–1 done** — 1,957 conversations exported; 16
+  playbooks approved, code-verified, dry-run-tested and graded by Eddy;
+  chargeback economics analyzed (hold the line, D15). **Phase 2 replanned
+  (D19)**: custom support portal + email ingestion inside the filteronme-one
+  repo on Vercel (eve framework candidate) — see `PORTAL-SPEC.md`. Help Scout
+  is being left (D16/D19); no cron loop will be built for it. This repo is
+  the permanent **brain**: playbooks, prompts, history archive, decision log,
+  dry-run harness.
 
 ## Core architecture (the gumclaw insight)
 

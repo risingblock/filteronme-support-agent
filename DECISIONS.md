@@ -143,6 +143,32 @@ portal. Rollout is phased to respect guardrail 2:
   the in-app **Billing button** (auto-logs into the portal) alongside the
   billing URL.
 
+## D19. Runtime pivot: custom portal on Vercel, no Hermes, no Hetzner, no
+## Help Scout loop (Eddy, 2026-07-27)
+Phase 2 is now a support portal + email ingestion built INTO filteronme-one
+(same repo/DB/auth/Stripe code), hosted on Vercel. The "agent runtime"
+collapses to per-ticket LLM calls (Claude API, Sonnet 5) from the portal
+backend — no always-on machine. Vercel's **eve** framework (June 2026,
+agents-as-directories: markdown skills + TS tools + built-in human-approval
+gates) is the primary runtime candidate; plain Agent SDK background functions
+are the fallback if eve proves too immature. Brain (playbooks/prompts) stays
+in THIS repo and ships to the portal at deploy time. Hermes is dropped
+entirely (D8's auth concerns + no need for a harness at this workload).
+Help Scout: kept read-only until cutover, then cancelled; the JSONL export is
+the permanent archive. Model: Sonnet 5 (GLM 5.2 benchmarks within noise;
+harness-native wins at this scale — re-evaluate only if volume 100×es).
+
+## D20. Agent tools are deterministic scoped wrappers, never raw APIs
+## (Eddy, 2026-07-27)
+The LLM never gets the app's Stripe SDK, Prisma client, or arbitrary HTTP.
+It gets a whitelist of narrow, read-only TypeScript functions (e.g.
+getSubscriptionByEmail, getTicketHistory), each doing one fixed query.
+Any future write action (D18 fast-cancel) is its own single-purpose tool
+whose SAFETY CHECK LIVES IN CODE: the tool itself re-verifies ticket-From ==
+subscription email server-side before acting, regardless of what the model
+claims, only ever cancel_at_period_end, and writes an audit log. Prompt
+guardrails are the soft layer; deterministic code is the enforcement layer.
+
 ## Open questions (not yet decided)
 
 - Does Help Scout's reply endpoint support a `draft: true` flag for real API drafts,

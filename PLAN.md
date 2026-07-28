@@ -32,51 +32,56 @@ boring, then promote to a small Hetzner VPS.
    ARE the training. (Reference: github.com/antiwork/skills is exactly this,
    published, for Gumroad.)
 
-## Phase 2 — Drafts-only loop, on the Mac (a day)
+## Phase 2 — Support portal + email ingestion in filteronme-one (REPLANNED
+## 2026-07-27, see D19; supersedes the Help Scout cron loop)
 
-Cron every 15 minutes (webhooks unnecessary at this volume):
+Build into the filteronme-one Next.js app on Vercel (spec: PORTAL-SPEC.md in
+this repo):
 
-> Fetch active/unanswered Help Scout conversations → match playbook → gather facts
-> (Phase 3 tools) → post suggested reply as a **private Note** on the conversation
-> (guaranteed API support; test whether the reply endpoint's draft flag also works)
-> → tag `ai-drafted`.
+1. **Email in**: inbound webhook (Postmark/Resend inbound or Cloudflare Email
+   Routing) for support@filteronme.com → SupportTicket/SupportMessage rows in
+   the existing Postgres. Threading via In-Reply-To/References.
+2. **Agent drafting**: on new inbound message, run the agent (eve framework,
+   fallback: plain Agent SDK background function; model: Sonnet 5) with the
+   playbooks from this repo + the D20 read-only tool whitelist → store draft,
+   topic, needs_human, rationale.
+3. **Eddy's inbox UI**: ticket list + customer message + draft + edit box +
+   [Send] / [Close as spam] / [Escalated]. Outbound via Resend/Postmark
+   (SPF/DKIM on filteronme.com). Every send records draft-vs-sent diff.
+4. **Cutover**: switch support@ forwarding when live; Help Scout goes
+   read-only, then cancelled. History is already archived here.
 
-Workflow: open Help Scout, read note, edit if needed, send. A weekly cron diffs
-sent replies vs drafts and proposes playbook updates.
+## Phase 3 — Tools + guardrails hardening (with Phase 2)
 
-Mac-sleep caveat: closed lid ⇒ missed polls; agent catches up on wake. Fine for
-drafts-only. `caffeinate` if it bugs us. Auto-send is the trigger to move to a server.
+- Stripe restricted read-only key (exists in .env here; add Subscriptions/
+  Invoices read) behind deterministic wrapper tools (D20).
+- App DB lookups via scoped Prisma wrappers (same D20 rules).
+- ~~Chargeback economics analysis~~ DONE 2026-07-27 — hold the line (D15).
+- Later, with explicit guardrail-2 amendment: single-purpose cancel tool with
+  code-enforced ownership verification (D18).
 
-## Phase 3 — Read-only fact tools (half a day + app endpoint)
+## Phase 4 — Learning loop + graduated autonomy (ongoing)
 
-- Stripe: **restricted read-only key** scoped to charges/customers/subscriptions.
-- Shopify: read-only Admin API token scoped to orders/customers.
-- Our app: tiny read-only internal endpoint (or read-replica SQL) for account
-  lookups. Browser automation only if truly no API path — last resort, not foundation.
-- v1 rule: agent reads everywhere, writes nowhere except Help Scout notes.
-- ~~Chargeback economics analysis~~ DONE 2026-07-27 (ahead of schedule —
-  Eddy created the restricted key early). Verdict: hold the line; see D15.
-  The Stripe restricted key already exists in .env; extend its permissions
-  (Subscriptions/Invoices read) when building the Phase 3 fact tools.
-
-## Phase 4 — Hetzner + graduated autonomy (half a day, then ongoing)
-
-1. Small VPS (~€5–8/mo), Ubuntu, agent as unprivileged service user, headless
-   (no browser). Brain folder synced via private git repo ⇒ move is clone + install.
-2. Secrets via env files, tight permissions, never in the repo.
-3. Daily digest cron: tickets seen / drafted / escalated / heavily-edited drafts.
-4. Graduate autonomy one intent at a time: a playbook whose drafts go ~2 weeks
-   without meaningful edits can flip to auto-send. Order status and how-tos first.
-   Refunds, angry customers, anything money-touching stay drafts-only indefinitely.
+1. Daily digest (Vercel cron): tickets seen / drafted / escalated /
+   heavily-edited drafts, emailed to Eddy.
+2. Weekly: export draft-vs-sent diffs → review in Claude Code here →
+   playbook edits → redeploy. (This replaces RL — the playbooks are the
+   weights; D17 dry-run harness re-runs after major playbook changes.)
+3. Graduate autonomy one intent at a time via eve's approval gates: a
+   playbook whose drafts go ~2 weeks without meaningful edits can flip to
+   auto-send (spam-close and filterly-template first — likely candidates).
+   Refunds, angry customers, anything money-touching stay drafts-only
+   indefinitely.
 
 ## Effort summary
 
 | Phase | What | Effort |
 |---|---|---|
-| 0 | Export script + run | an afternoon |
-| 1 | Cluster + 10–20 playbooks + review | 2–3 sessions |
-| 2 | Local drafts-only cron loop | a day |
-| 3 | Stripe/Shopify keys + app lookup | half a day |
-| 4 | VPS move + digest + graduated auto-send | half a day, then tuning |
+| 0 | Export script + run | DONE |
+| 1 | Playbooks + review + dry-run gate | DONE |
+| 2 | Portal MVP (email in, drafts, inbox UI) | 2–3 days in filteronme-one |
+| 3 | Tool layer + guardrails | with Phase 2 |
+| 4 | Digest + learning loop + graduated auto-send | ongoing |
 
-Running cost target: VPS ~€5–8/mo + model usage (~$10–30/mo at this volume).
+Running cost: Vercel (existing) + model usage (~$5–15/mo at this volume) +
+email provider. No VPS, no Help Scout subscription after cutover.
