@@ -9,7 +9,7 @@ time (copy into the eve agent directory as skills).
 ## Data model (Prisma, additive to filteronme-one schema)
 
 ```prisma
-model SupportTicket {
+model SupportTicket {  // NOTE: MySQL/PlanetScale, relationMode prisma
   id           String   @id @default(cuid())
   customerEmail String
   subject      String
@@ -106,8 +106,9 @@ filteronme-support-agent/          ← this repo, pushed to private GitHub
 ```
 
 - **Agent project env vars (its own Vercel project):** STRIPE_RESTRICTED_KEY
-  (read-only) + SUPPORT_DB_READONLY_URL (Postgres role: SELECT only on the
-  needed tables) + INTERNAL_WEBHOOK_SECRET. Nothing else. Models go through
+  (read-only) + SUPPORT_DB_READONLY_URL (PlanetScale MySQL connection string
+  minted with a READ-ONLY password — no manual role SQL needed) +
+  INTERNAL_WEBHOOK_SECRET. Nothing else. Models go through
   Vercel AI Gateway via OIDC — no provider API key at all.
 - **The agent writes NOTHING.** filteronme-one's webhook POSTs the ticket to
   the agent's /eve/v1/session endpoint and persists the returned draft

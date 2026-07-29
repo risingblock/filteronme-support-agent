@@ -1,0 +1,20 @@
+{
+  "name": "filteronme-support-agent",
+  "private": true,
+  "version": "0.1.0",
+  "description": "FilterOnMe support drafting agent \u2014 brain (playbooks) + read-only runtime. Deploys as a standalone Vercel project; writes nothing, sends nothing.",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "replay": "node --experimental-strip-types scripts/replay_case.ts"
+  },
+  "dependencies": {
+    "ai": "^6.0.0",
+    "zod": "^3.24.0",
+    "mysql2": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.7.0"
+  }
+}
