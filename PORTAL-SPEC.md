@@ -3,8 +3,8 @@
 Decisions: D16 (portal + email), D18 (verified-owner fast-cancel target),
 D19 (Vercel, eve-first, no Hermes), D20 (deterministic tool layer).
 This repo stays the brain (playbooks/, prompts/, history/, decisions);
-filteronme-one gets the runtime + UI. Playbooks ship to the portal at deploy
-time (copy into the eve agent directory as skills).
+filteronme-one gets the runtime + UI. Playbooks deploy WITH the agent project (same repo); the portal never
+needs a copy.
 
 ## Data model (Prisma, additive to filteronme-one schema)
 
@@ -43,8 +43,9 @@ Draft-vs-sent diffs (meta.diff) are the Phase 4 learning-loop input.
    signature → find-or-create ticket (thread on In-Reply-To/References, fall
    back to same-sender + normalized subject) → store message → enqueue agent
    run. Strip HTML to text server-side (port of render_md_views.html_to_text).
-2. **Agent run** (eve session per ticket; fallback: background function):
-   input = full ticket thread + prompts/draft_reply.md + playbooks (skills).
+2. **Agent run**: portal POSTs the ticket thread to the agent project's
+   /api/draft (x-internal-secret auth); the agent loads instructions +
+   playbooks itself.
    Tools: the D20 whitelist below. Output = draft SupportMessage
    (direction=draft) + topic/needs_human on the ticket. Spam → propose
    close-as-spam (an approval-gated action, auto-later per Phase 4).
@@ -73,8 +74,8 @@ ticketId. NO generic fetch, NO raw queries, NO write tools in MVP.
 
 Future (needs guardrail-2 amendment, D18): `cancelSubscription(ticketId)` —
 the TOOL re-verifies From == subscription email server-side, only sets
-cancel_at_period_end, audit-logs, and sits behind an eve approval gate even
-then.
+cancel_at_period_end, audit-logs, and sits behind the portal approval gate
+even then.
 
 ## Runtime: Vercel AI SDK now, eve later-maybe (updated 2026-07-28)
 
@@ -111,8 +112,7 @@ filteronme-support-agent/          ← this repo, pushed to private GitHub
   INTERNAL_WEBHOOK_SECRET. Nothing else. Models go through
   Vercel AI Gateway via OIDC — no provider API key at all.
 - **The agent writes NOTHING.** filteronme-one's webhook POSTs the ticket to
-  the agent's /eve/v1/session endpoint and persists the returned draft
-  itself. Agent blast radius = read-only lookups, full stop.
+  the agent's /api/draft endpoint and persists the returned draft itself. Agent blast radius = read-only lookups, full stop.
 - history/ stays gitignored → never reaches GitHub/Vercel.
 
 Human-approval gate on: sending anything, closing as spam, any future write —
