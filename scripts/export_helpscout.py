@@ -48,7 +48,11 @@ def load_env(path: Path) -> dict:
         # allow trailing inline comments like the ones in .env.example
         if " #" in value:
             value = value.split(" #", 1)[0]
-        env[key.strip()] = value.strip()
+        value = value.strip()
+        # strip surrounding quotes, dotenv-style
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in ("'", '"'):
+            value = value[1:-1]
+        env[key.strip()] = value
     return env
 
 
