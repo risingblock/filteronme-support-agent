@@ -99,7 +99,7 @@ requests.
   (per doc 140): old account email, new email, most recent charge date and
   amount, last 4 digits + brand of the card, name and billing address on the
   card, any receipt/invoice number, and whether they might have more than one
-  FilterOnMe account. If they already gave this in their first message, don't
+  Filteronme account. If they already gave this in their first message, don't
   re-ask — just escalate.
 - Set expectations honestly: manual review, can take 5–10 business days or
   longer, no guaranteed date.
@@ -134,7 +134,7 @@ requests.
   subscription found, deleted his free account").
 - Don't reflexively send the "check your receipt, might be Filterly" deflection
   that shows up on several 2026 deletion tickets — most of these customers
-  clearly mean FilterOnMe and that reply just stalls a simple request. Confirm
+  clearly mean Filteronme and that reply just stalls a simple request. Confirm
   subscription status and escalate instead.
 - Escalate (don't improvise) on: account owner deceased (conv 3305368004 —
   Eddy cancelled the sub as a compassionate gesture), and "hide my email"

@@ -25,8 +25,6 @@ On the trial-expired screen, click **I already have premium**. Elsewhere in the 
 3. Enter the code to verify.
 4. Close and reopen the app.
 
-<!-- TODO screenshot: trial-expired screen showing the "I already have premium" button -->
-
 ![screenshot](images/136-restore-purchase-or-access-existing-subscription/2.jpg)
 
 This only works if the subscription is still active on that email, and only if the account you're currently logged into doesn't already have its own active subscription.

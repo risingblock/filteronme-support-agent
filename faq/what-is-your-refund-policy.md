@@ -8,7 +8,7 @@ verdict: rewrite
 related: [how-to-cancel-subscription, charge-on-your-statement, custom-invoices-or-quotes]
 ---
 
-We don't offer refunds for FilterOnMe purchases.
+We don't offer refunds for Filteronme purchases.
 
 The free trial is our try-before-you-buy option — no card required, full access, so you can confirm the app works well on your system before paying. If you're not sure it'll work for you, use the trial first.
 

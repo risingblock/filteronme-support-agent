@@ -2,7 +2,7 @@
 id: 96
 slug: minimum-computer-requirements-to-run-filteronme
 legacy_url: https://help.filteronme.com/article/96-minimum-computer-requirements-to-run-filteronme
-title: Minimum computer requirements to run FilterOnMe
+title: Minimum computer requirements to run Filteronme
 category: presales
 verdict: fix
 related: [do-you-have-a-mobile-app, download-old-mac-version, which-apps-does-filteronme-work-with]

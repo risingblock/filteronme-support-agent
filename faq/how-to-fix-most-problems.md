@@ -12,8 +12,6 @@ Work through these in order — most tickets are solved by the first two or thre
 
 1. **Open Filteronme before you open the app you're using it in** (Zoom, OBS, Discord, etc.) — the other app needs to find the Filteronme camera already running. Windows: keep Filteronme open for the whole call. Mac 2.1 and later: you can close Filteronme again once you've selected the camera.
 
-<!-- TODO screenshot: Filteronme running with camera preview visible, before switching to the call app -->
-
 2. **Switch your camera selection to something else and back**, or unplug and replug your physical camera.
 
 ![screenshot](images/105-how-to-fix-most-problems/2.jpg)

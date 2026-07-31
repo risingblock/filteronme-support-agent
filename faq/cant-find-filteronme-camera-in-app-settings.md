@@ -12,8 +12,6 @@ If Filteronme's camera doesn't show up as an option in another app's video setti
 
 **Mac:** the virtual camera may not be installed yet. In Filteronme, go to the Settings tab and click **Install virtual camera**.
 
-<!-- TODO screenshot: Settings tab showing the "Install virtual camera" button -->
-
 **Windows:** open Filteronme *before* you open the app you want to use it in — the camera only appears in that app's list once Filteronme is already running.
 
 Still missing after that? Reinstall the camera extension: in Filteronme, go to the top-left menu → Advanced → Uninstall Extension, then reopen Filteronme and reinstall it. Full fix ladder here if that doesn't help either: [how to fix most problems](how-to-fix-most-problems).

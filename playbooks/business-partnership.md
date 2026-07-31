@@ -10,8 +10,8 @@ status: approved 2026-07-27
 
 Someone is writing as a company, brand, agency, or independent creator — not an
 end user with a product question — proposing some kind of business relationship:
-bulk/studio licenses, white-labeling, SDK/API access, integrating FilterOnMe into
-their own product, sponsorship/brand collab, acquisition of FilterOnMe or of their
+bulk/studio licenses, white-labeling, SDK/API access, integrating Filteronme into
+their own product, sponsorship/brand collab, acquisition of Filteronme or of their
 own project, press/review requests, or "let's promote each other."
 
 **Tell a real inquiry from partnership-flavored spam:**
@@ -27,7 +27,7 @@ own project, press/review requests, or "let's promote each other."
   our dev services" cold outreach with no specifics (conv 3263462971); unsolicited
   "acquisition opportunity" pitches for a stranger's side project (conv 3339481160).
   These often share tells with cold sales outreach: mass-mailer tone, unsubscribe
-  footers, no reference to FilterOnMe specifically beyond the product name.
+  footers, no reference to Filteronme specifically beyond the product name.
 
 When genuinely unsure which bucket it's in, it's cheap to ask one qualifying
 question rather than guess — see below.
@@ -71,7 +71,7 @@ from history, anonymized:
 >
 > Best
 
-(For an OBS-based streaming product wanting to bundle FilterOnMe in — conv
+(For an OBS-based streaming product wanting to bundle Filteronme in — conv
 2551235298 pattern.)
 
 > Hi [Name],
@@ -90,7 +90,7 @@ For affiliate-style pitches, the qualifying ask is different — social proof,
 not budget:
 
 > Hi! Yes we do — if you're interested please share your social media links or
-> plans on how you're going to promote FilterOnMe.
+> plans on how you're going to promote Filteronme.
 >
 > Best
 

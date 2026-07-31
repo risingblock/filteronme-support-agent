@@ -75,7 +75,7 @@ provide before escalating:
 - last 4 digits and brand of the card used
 - name and billing address on the payment method
 - any receipt/invoice/order number
-- whether they might have more than one FilterOnMe account
+- whether they might have more than one Filteronme account
 
 Tag `needs-human` and hand this to Eddy with whatever verification info the
 customer already gave — do not tell them it's done, and set expectations

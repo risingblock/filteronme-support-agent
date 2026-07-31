@@ -10,7 +10,7 @@ status: approved 2026-07-27
 
 The customer is angry about a charge or subscription for **"Filterly"** (also
 seen misspelled: Fiterly, Filtery, Fliterly, Filtertly, Filtermi) — a
-different company, not affiliated with FilterOnMe. Tells:
+different company, not affiliated with Filteronme. Tells:
 
 - They name "Filterly" explicitly, or the charge descriptor on their
   statement doesn't match ours (ours reads `WWW.FILTERONME.COM` or
@@ -18,7 +18,7 @@ different company, not affiliated with FilterOnMe. Tells:
 - Charge amounts that don't match our pricing (common Filterly amounts seen:
   $19.99, €19.99, £16.70-£34, CHF19.06, 8052 HUF — recurring weekly or
   biweekly in several complaints, which is not how our billing cycles work).
-- No FilterOnMe account findable under their email; they often can't even
+- No Filteronme account findable under their email; they often can't even
   say what app they supposedly used.
 - Occasionally the "conversation" isn't a customer email to us at all — it's
   Filterly's own outbound support correspondence (a Gleap-powered helpdesk,
@@ -29,7 +29,7 @@ different company, not affiliated with FilterOnMe. Tells:
 
 ## What to check first
 
-Confirm they have **no** FilterOnMe account or charge before sending the
+Confirm they have **no** Filteronme account or charge before sending the
 not-us reply:
 
 - (Phase 3) Stripe/app lookup by email — not built yet.
@@ -41,8 +41,8 @@ not-us reply:
   "your charge" or "your app"), ask them to check the statement descriptor
   before assuming — see the verification variant below.
 - In the 20+ conversations reviewed for this playbook, none turned out to
-  actually be a FilterOnMe customer. Treat that as the base rate, but don't
-  skip the check — if a lookup ever does surface a real FilterOnMe charge,
+  actually be a Filteronme customer. Treat that as the base rate, but don't
+  skip the check — if a lookup ever does surface a real Filteronme charge,
   handle that separately (see Escalate section) rather than sending the
   not-us template.
 
@@ -92,7 +92,7 @@ vague ("your organisation," "your app," no product name):
 >
 > Best
 
-If a lookup ever confirms they DO also have a real FilterOnMe
+If a lookup ever confirms they DO also have a real Filteronme
 subscription/charge:
 
 > Hi [name],
@@ -100,18 +100,18 @@ subscription/charge:
 > I can see the Filterly charge isn't from us — we're not affiliated with
 > them, so you'll need to contact their support directly for that one.
 >
-> I also see you have a FilterOnMe subscription with us. [answer/handle that
+> I also see you have a Filteronme subscription with us. [answer/handle that
 > part on its own merits — don't conflate the two in one paragraph]
 >
 > Best
 
 ## Escalate instead (tag needs-human) when
 
-- A lookup shows they actually do have a FilterOnMe charge or account —
-  handle the FilterOnMe side as its own ticket/topic; don't let the Filterly
+- A lookup shows they actually do have a Filteronme charge or account —
+  handle the Filteronme side as its own ticket/topic; don't let the Filterly
   confusion template paper over a real charge of ours.
 - Legal/regulatory language aimed specifically **at us** (not "I'll report
-  Filterly," but "I'm reporting FilterOnMe" / naming us in a chargeback or to
+  Filterly," but "I'm reporting Filteronme" / naming us in a chargeback or to
   a regulator) — rare, but worth a human look since it implies they believe
   the charge is ours.
 - Anything that doesn't fit the pattern at all after the check (e.g., they
@@ -131,13 +131,13 @@ subscription/charge:
   seen May 2025 — Filterly seems to be a newer/growing source of confusion)
   vs. ~26 already by late July 2026 — roughly double the pace.
 - The reply wording drifted through mid-2025 ("we are FILTERONME not
-  FILTERLY" / "Sadly, we're FilterOnMe not Filterly" / a longer version
+  FILTERLY" / "Sadly, we're Filteronme not Filterly" / a longer version
   explaining the statement-descriptor mismatch) before settling by September
   2025 into the fixed two-sentence template that now matches docs 122
   verbatim. Treat that settled wording as the template; don't reintroduce the
   earlier variants.
 - One case (conv history, Jul 2025) needed an Eddy correction because
-  Google's AI Overview was telling a customer FilterOnMe and Filterly were
+  Google's AI Overview was telling a customer Filteronme and Filterly were
   the same company — worth keeping an eye on whether that recurs, and maybe
   worth Eddy flagging to Google/considering a homepage banner if it keeps
   happening.

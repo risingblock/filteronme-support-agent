@@ -2,21 +2,21 @@
 id: null
 slug: which-apps-does-filteronme-work-with
 legacy_url: null
-title: Which apps does FilterOnMe work with?
+title: Which apps does Filteronme work with?
 category: using-with-apps
 verdict: new
 related: [how-to-use-with-obs-or-streamlabs, how-to-use-with-discord, whatsapp]
 ---
 
-FilterOnMe works as a camera source, so it works in any app that lets you pick which camera to use. Open FilterOnMe first, then select **FilterOnMe Camera** in the app's video settings.
+Filteronme works as a camera source, so it works in any app that lets you pick which camera to use. Open Filteronme first, then select **Filteronme Camera** in the app's video settings.
 
 Confirmed working: Zoom, Google Meet, Microsoft Teams, OBS/Streamlabs, Discord, WhatsApp (desktop app), Livestorm, Jitsi, FaceTime, and Skype.
 
-Other participants only ever see your regular camera feed — they can't tell you're running FilterOnMe.
+Other participants only ever see your regular camera feed — they can't tell you're running Filteronme.
 
 ## Special setups
 
-- **Using your phone as a webcam (DroidCam, etc.):** open FilterOnMe *before* the phone-camera app, or it may not be picked up. Chain: phone app → FilterOnMe → your target app.
+- **Using your phone as a webcam (DroidCam, etc.):** open Filteronme *before* the phone-camera app, or it may not be picked up. Chain: phone app → Filteronme → your target app.
 - **Capture cards / Elgato Cam Link:** these have known compatibility issues. We don't have a fix timeline for this yet.
 
 ## App not listed here?

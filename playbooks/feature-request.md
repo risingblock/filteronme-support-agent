@@ -46,7 +46,7 @@ and from a **how-do-I** question (feature already exists, they haven't found it)
   request is interesting he asks a clarifying question before answering
   (what do you mean by zoom — the app or face zoom? conv 2767738997; any
   particular fun filters you miss? conv 2524600023; what app are you using
-  FilterOnMe for? conv 2322459543).
+  Filteronme for? conv 2322459543).
 - **All feature requests get logged for Eddy**, even ones the agent answers
   correctly as "not currently possible." Post a private Note tagging Eddy
   (`@eddy`) with a one-line summary of the ask, same pattern Jona/Rajan already
@@ -61,12 +61,12 @@ and from a **how-do-I** question (feature already exists, they haven't found it)
 | Linux support | No plans currently | conv 2652767589 |
 | Lifetime / one-time purchase | Not offered — monthly or yearly subscription only | conv 3240382280 |
 | Vertical camera / flip / rotate | Not supported directly; suggest combining with OBS | conv 2671073589 |
-| Camera zoom / pan / crop | Not built into FilterOnMe; point to OBS crop+enlarge, webcam software's own PTZ, or macOS Continuity Camera pan/zoom | conv 2767738997, 2632509312, 3365596607 |
-| Color temperature / white balance | FilterOnMe has no temp/color control; check webcam software (Logitech, Microsoft) or OBS color settings | conv 3158996742 |
+| Camera zoom / pan / crop | Not built into Filteronme; point to OBS crop+enlarge, webcam software's own PTZ, or macOS Continuity Camera pan/zoom | conv 2767738997, 2632509312, 3365596607 |
+| Color temperature / white balance | Filteronme has no temp/color control; check webcam software (Logitech, Microsoft) or OBS color settings | conv 3158996742 |
 | Filters disable when face isn't detected | Expected — filters need a tracked face; not adjustable | conv 2801958696 |
 | Import Snap Camera lenses | Not feasible — technically and legally unclear who owns lens copyright | conv 2517237772 |
 | Custom filter editor / Lens-Studio-style creator tool | No ETA — big lift; may happen eventually as a creator-tools initiative | conv 2344820531, conv 2517237772 |
-| Background replace (not just blur) | No native replace; use the meeting app's own background replacement (Google Meet/Teams) alongside FilterOnMe | conv 2322459543 |
+| Background replace (not just blur) | No native replace; use the meeting app's own background replacement (Google Meet/Teams) alongside Filteronme | conv 2322459543 |
 
 ## How to respond
 
@@ -124,7 +124,7 @@ call to make, not the agent's.
 
 - Do you have a mobile app? — https://help.filteronme.com/article/85-do-you-have-a-mobile-app
 - Do you offer 4K or higher quality resolution? — https://help.filteronme.com/article/94-do-you-offer-4k-or-higher-quality-resolution
-- How to minimize FilterOnMe to the tray — https://help.filteronme.com/article/130-how-to-minimize-filteronme-to-the-tray
+- How to minimize Filteronme to the tray — https://help.filteronme.com/article/130-how-to-minimize-filteronme-to-the-tray
 - Change language of the app — https://help.filteronme.com/article/139-change-language-of-the-app
 
 ## Notes from history

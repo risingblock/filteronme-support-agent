@@ -2,7 +2,7 @@
 id: 126
 slug: stuck-setting-up-filteronme-on-mac
 legacy_url: https://help.filteronme.com/article/126-stuck-setting-up-filteronme-on-mac
-title: Stuck setting up FilterOnMe on Mac
+title: Stuck setting up Filteronme on Mac
 category: install-setup
 verdict: keep
 related: [how-to-do-a-full-reinstall-of-filteronme-for-mac, where-is-camera-extension-in-mac-settings]
@@ -18,7 +18,7 @@ tccutil reset Camera com.filtersoftware.filteronme.CameraExtension
 
 You should see a message saying "Successfully reset...".
 
-2. Open FilterOnMe.
+2. Open Filteronme.
 3. Click **Advanced** in the top-left menu, then **Uninstall Extension**.
 
 ![screenshot](images/126-stuck-setting-up-filteronme-on-mac/2.jpg)

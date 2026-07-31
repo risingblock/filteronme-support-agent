@@ -35,7 +35,7 @@ still-open items.
 
 - **Windows resolution**: RECONCILED — code registers a 1080p canvas but
   captures the camera at 720p, so Eddy's "720p" is the correct quality
-  answer. FilterOnMeWindows-V2 confirmed as the only Windows repo. → tech-issue.md
+  answer. FilteronmeWindows-V2 confirmed as the only Windows repo. → tech-issue.md
 - **Trial start**: RECONCILED — starts on first login/controls load, which
   for nearly all users IS account creation (signup = login from the app).
   Customer phrasing: "starts when you first log in." → trial.md

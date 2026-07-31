@@ -9,7 +9,7 @@ status: approved 2026-07-27 (facts code-verified against app v2.1.7 + web)
 ## When this applies
 
 Anyone who hasn't bought yet (or is still on free/trial) asking whether
-FilterOnMe will work for their setup, what it costs, what free vs. premium
+Filteronme will work for their setup, what it costs, what free vs. premium
 gets them, or how the trial/account/payment mechanics work. Typical shapes:
 "does it work with [app]?", "what are the system requirements?", "is there a
 mobile app?", "do you need a credit card for the trial?", "is there a
@@ -53,18 +53,18 @@ live lookup. The two things that DO depend on their setup:
 **App/hardware compatibility**
 - Confirmed working: Zoom, Google Meet, Teams, OBS/Streamlabs, Discord,
   WhatsApp, Livestorm, Jitsi (conv 2503773482, conv 2828042237, docs 81,
-  docs 88). For OBS on Mac (latest version), FilterOnMe can be closed after
+  docs 88). For OBS on Mac (latest version), Filteronme can be closed after
   setup to save resources; on Windows keep it open (docs 81).
 - **The filter is invisible to other participants** — they only see your
-  camera feed, not the FilterOnMe app window (conv 2828042237).
+  camera feed, not the Filteronme app window (conv 2828042237).
 - Known exception / needs a workaround: **DroidCam** (phone-as-webcam) —
-  open FilterOnMe *before* DroidCam, or it's treated as incompatible (conv
+  open Filteronme *before* DroidCam, or it's treated as incompatible (conv
   2941005538). This is the one specific workaround Eddy has given for a
   virtual-camera-type source; it's not guaranteed to generalize.
-- Unverified / open question: whether FilterOnMe reliably picks up *other*
+- Unverified / open question: whether Filteronme reliably picks up *other*
   virtual-camera sources as input (e.g., DSLR-as-webcam software) — one
   customer's ticket (conv 2875366915) went unanswered in our history.
-  Default to "try opening FilterOnMe first" per the DroidCam pattern, but
+  Default to "try opening Filteronme first" per the DroidCam pattern, but
   don't promise it'll work.
 - Anything else not listed (Ecamm Live, iMLive, Logitech Capture, Clipchamp,
   photo booth software, capture cards, etc.) → **tell them to test with the
@@ -126,7 +126,7 @@ live lookup. The two things that DO depend on their setup:
   (conv 3170098392). Note: the exact wallet list is configured in the Stripe
   dashboard, not code — "Stripe offers several payment methods at checkout"
   is the safe phrasing.
-- **Privacy**: FilterOnMe cannot see/access the camera feed itself, per Eddy
+- **Privacy**: Filteronme cannot see/access the camera feed itself, per Eddy
   (conv 3365635761) — point privacy-conscious askers to
   filteronme.com/privacy rather than drafting a custom assurance letter.
 

@@ -10,9 +10,9 @@ related: [what-is-your-refund-policy, how-to-cancel-subscription, do-you-accept-
 
 Seeing **WWW.FILTERONME.COM** or **Filteronme** on your card or bank statement and don't recognize it? Here's the fastest way to sort it out yourself.
 
-## What FilterOnMe is
+## What Filteronme is
 
-FilterOnMe is a desktop app that adds camera filters and virtual backgrounds for video calls. If you don't remember buying it, the most common reasons are: you signed up under an email you don't check often, a family member used a shared card, or you subscribed through Apple Pay or Google Pay — which can bill under your Apple/Google account email rather than your usual one.
+Filteronme is a desktop app that adds camera filters and virtual backgrounds for video calls. If you don't remember buying it, the most common reasons are: you signed up under an email you don't check often, a family member used a shared card, or you subscribed through Apple Pay or Google Pay — which can bill under your Apple/Google account email rather than your usual one.
 
 ## What the charge looks like
 
@@ -29,7 +29,5 @@ Once you're in the portal — from the login link above, or the Billing button i
 ## Not sure it's even us?
 
 A similarly named company, **Filterly**, is a completely different, unaffiliated business. If your statement says "Filterly" rather than "Filteronme" or "WWW.FILTERONME.COM," or the charge doesn't match a monthly/yearly pattern, it's likely not from us — you'll need to contact Filterly's (or the actual merchant's) support directly to cancel it. We have no way to look up or cancel another company's charge from our side.
-
-<!-- TODO screenshot: card statement line showing the WWW.FILTERONME.COM / Filteronme descriptor -->
 
 Still stuck? Email support@filteronme.com

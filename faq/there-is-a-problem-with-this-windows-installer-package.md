@@ -42,10 +42,10 @@ Press Windows key + R, type `%temp%`, press Enter, select all the files, and del
 
 ## Still failing? Send us an install log
 
-1. Open Command Prompt as administrator, in the folder where FilterOnMe.msi is.
+1. Open Command Prompt as administrator, in the folder where Filteronme.msi is.
 2. Run:
    ```
-   msiexec /i "FilterOnMe.msi" /L*v "install_log.txt"
+   msiexec /i "Filteronme.msi" /L*v "install_log.txt"
    ```
 3. Email `install_log.txt`, your Windows version, and a screenshot of the error to support@filteronme.com.
 

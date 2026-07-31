@@ -21,7 +21,7 @@ status: approved 2026-07-27
 
 **From the ticket itself:**
 - Which email did they actually pay with? It's often different from the one emailing support, especially after Apple Pay / Google Pay checkout (see doc 108).
-- Is this really FilterOnMe, or are they confusing us with "Filterly" (comes up constantly — check the product/domain name they mention and their card statement descriptor, which should read `FILTERONME.COM` or `Filteronme`).
+- Is this really Filteronme, or are they confusing us with "Filterly" (comes up constantly — check the product/domain name they mention and their card statement descriptor, which should read `FILTERONME.COM` or `Filteronme`).
 - Trial or paid? Trials require no card and auto-expire — if they never upgraded, there is nothing to cancel (conv 3187137828, doc 112).
 - Have they actually tried the self-serve billing portal, and what specifically failed (no email received, no cancel button visible, wrong email)?
 - Is there a refund or legal/chargeback threat attached? That changes the escalation path (see below).

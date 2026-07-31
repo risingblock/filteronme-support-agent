@@ -8,11 +8,11 @@ verdict: keep
 related: [how-to-do-a-full-reinstall-of-filteronme-for-mac, how-to-install-and-setup-filteronme-on-mac]
 ---
 
-The current FilterOnMe (2.1.x) needs macOS 13 or later. If your Mac is on macOS 12.4 and can't upgrade past 12, use our last compatible build instead: version 2.0.15, which supports macOS 12.4+.
+The current Filteronme (2.1.x) needs macOS 13 or later. If your Mac is on macOS 12.4 and can't upgrade past 12, use our last compatible build instead: version 2.0.15, which supports macOS 12.4+.
 
 Both versions need an Apple Silicon Mac (M1 or newer) — Intel Macs aren't supported on any version.
 
-Download it here: [FilterOnMe 2.0.15.dmg](https://github.com/risingblock/FilterOnMeSparkleUpdate/releases/download/v2.0.15/FilterOnMe.dmg)
+Download it here: [Filteronme 2.0.15.dmg](https://github.com/risingblock/FilteronmeSparkleUpdate/releases/download/v2.0.15/Filteronme.dmg)
 
 We recommend following the [full reinstall steps](how-to-do-a-full-reinstall-of-filteronme-for-mac) to avoid conflicts with any newer version already on your Mac.
 

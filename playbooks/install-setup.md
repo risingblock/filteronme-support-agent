@@ -43,7 +43,7 @@ don't guess.
   restart → temporarily disable antivirus → fresh download from
   filteronme.com (delete the old installer first) → clear `%temp%` folder.
   If none of that works, ask for an install log: run
-  `msiexec /i "FilterOnMe.msi" /L*v "install_log.txt"` from an admin Command
+  `msiexec /i "Filteronme.msi" /L*v "install_log.txt"` from an admin Command
   Prompt in the installer's folder, and get the OS version + screenshot too
   (conv 2664033213, 2754566719, 2755642030, 3271155896). This is the
   workhorse doc — it also covers reports that look unrelated at first (DLL
@@ -54,7 +54,7 @@ don't guess.
   computer, wait a minute after logging in, open Task Manager and kill any
   `msiexec.exe` process, then retry.
 - **"The feature you are trying to use is on a network resource that is
-  unavailable" / "The older version of FilterOnMeWindows cannot be removed.
+  unavailable" / "The older version of FilteronmeWindows cannot be removed.
   Contact your technical support group"** — (docs/95): this happens after a
   bad/incomplete uninstall (deleting the app folder instead of using the
   uninstaller) followed by trying to reinstall or update. Point to the
@@ -81,8 +81,8 @@ don't guess.
   retry (conv 2839321880, 3212222583 — this came from Eddy, not Jona's
   boilerplate). If a video is attached but doesn't load on our end, ask them
   to re-upload or send a link (conv 2909452755).
-- **FilterOnMe Camera doesn't show up as a device in OBS/Discord/Zoom/etc.**
-  — FilterOnMe must be **open first**, before the target app is opened; the
+- **Filteronme Camera doesn't show up as a device in OBS/Discord/Zoom/etc.**
+  — Filteronme must be **open first**, before the target app is opened; the
   virtual camera only registers as available while the app is running.
 
 ### Mac
@@ -93,7 +93,7 @@ don't guess.
   versions (older macOS 12.x: General tab of Security & Privacy; betas: under
   "Others"), and (docs/126) for the actual unstick sequence: run
   `tccutil reset Camera com.filtersoftware.filteronme.CameraExtension` in
-  Terminal, open FilterOnMe → Advanced → Uninstall Extension, reboot, retry,
+  Terminal, open Filteronme → Advanced → Uninstall Extension, reboot, retry,
   click Allow when the permission prompt appears. Toggling the camera
   permission or the extension off/on in System Settings also frequently
   clears it (conv 2492098805, 2426149458, 2711224189, 3122825597).
@@ -106,9 +106,9 @@ don't guess.
   the Applications folder, ask/check this before anything else (conv
   2492098805 — this alone fixed it twice in that thread).
 - **"You can't use this version… requires macOS 13.0 or later"** — be
-  straight with them: FilterOnMe 2.x needs macOS 13+. Offer the last version
+  straight with them: Filteronme 2.x needs macOS 13+. Offer the last version
   that supported older macOS: v2.0.15
-  (https://github.com/risingblock/FilterOnMeSparkleUpdate/releases/download/v2.0.15/FilterOnMe.dmg,
+  (https://github.com/risingblock/FilteronmeSparkleUpdate/releases/download/v2.0.15/Filteronme.dmg,
   also linked from docs/124 "download old mac version"), and recommend they
   still follow the full-reinstall steps to avoid version conflicts
   (docs/123). No fix exists to run 2.x on macOS 12 or lower (conv 3126132273,
@@ -135,7 +135,7 @@ don't guess.
 3. If the error is vague or none of the specific docs match, the generic
    fallback (what most closes tickets when nothing else fits): reset the app
    or reinstall it, try changing the selected camera and back (or
-   unplug/replug the physical camera), make sure FilterOnMe is open and
+   unplug/replug the physical camera), make sure Filteronme is open and
    showing your preview *before* opening the target app, restart the
    computer. On Mac, also try toggling camera + extension permissions off
    and back on.
@@ -180,7 +180,7 @@ Mac stuck-on-setup:
 > Try this — open Terminal and run:
 > `tccutil reset Camera com.filtersoftware.filteronme.CameraExtension`
 >
-> Then reopen FilterOnMe and go through setup again, clicking Allow when it
+> Then reopen Filteronme and go through setup again, clicking Allow when it
 > asks for permission.
 >
 > Best
@@ -189,9 +189,9 @@ Old macOS, no fix available — honesty over a dead end (per TONE):
 
 > Hi,
 >
-> FilterOnMe 2.x needs macOS 13 or later, so it won't run on 12.7.6. You can
+> Filteronme 2.x needs macOS 13 or later, so it won't run on 12.7.6. You can
 > use our last version that supports older Macs here:
-> https://github.com/risingblock/FilterOnMeSparkleUpdate/releases/download/v2.0.15/FilterOnMe.dmg
+> https://github.com/risingblock/FilteronmeSparkleUpdate/releases/download/v2.0.15/Filteronme.dmg
 >
 > We'd recommend the reinstall steps here to avoid version conflicts:
 > https://help.filteronme.com/article/123-how-to-do-a-full-reinstall-of-filteronme-for-mac
@@ -232,7 +232,7 @@ Old macOS, no fix available — honesty over a dead end (per TONE):
 - https://help.filteronme.com/article/127-upgrading-to-2-1-6
 - Also useful for this topic (all already exported in history/docs/):
   article 124 ("download old mac version"), article 97 ("can't find
-  FilterOnMe camera in app settings"), article 105 ("how to fix most
+  Filteronme camera in app settings"), article 105 ("how to fix most
   problems"). Article 125 ("upgrading to Mac version 2.1.5") appears in old
   replies but is no longer in the live sitemap — treat links to it as dead.
 
@@ -259,6 +259,6 @@ Old macOS, no fix available — honesty over a dead end (per TONE):
   consistently read the actual error/screenshot first and ask one pointed
   diagnostic question. Model replies on Eddy's pattern, not Jona's default.
 - **Open question:** no documented clean path exists for "customer wants to
-  fully remove FilterOnMe from Windows and can't" when normal uninstall
+  fully remove Filteronme from Windows and can't" when normal uninstall
   fails — current guidance just reuses the install-repair doc. Worth a real
   uninstall article; flagging for Eddy rather than inventing steps.

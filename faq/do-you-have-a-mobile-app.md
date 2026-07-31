@@ -8,6 +8,6 @@ verdict: keep
 related: [minimum-computer-requirements-to-run-filteronme, which-apps-does-filteronme-work-with]
 ---
 
-No — FilterOnMe is desktop only, for Mac and Windows. There's no iOS, Android, ChromeOS, or Linux version.
+No — Filteronme is desktop only, for Mac and Windows. There's no iOS, Android, ChromeOS, or Linux version.
 
 Still stuck? Email support@filteronme.com

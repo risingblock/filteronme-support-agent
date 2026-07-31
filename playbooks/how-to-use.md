@@ -4,11 +4,11 @@ volume: 85 of 1957 (4%)
 status: approved 2026-07-27
 ---
 
-# Using FilterOnMe with other apps
+# Using Filteronme with other apps
 
 ## When this applies
 
-Customer is asking how to *do* something — connect FilterOnMe to a specific
+Customer is asking how to *do* something — connect Filteronme to a specific
 video app, find a setting, or remove the app — with no indication anything is
 actually broken. Covers: per-app camera setup (Zoom/Meet/Teams/OBS/Streamlabs/
 Discord/Webex/Skype/FaceTime/Messenger/Riverside.fm), phone-as-webcam chains
@@ -25,41 +25,41 @@ tray-minimize answers differ by OS).
 ## Policy
 
 **The universal pattern** (state this whenever the question is "how do I use
-FilterOnMe with X"):
+Filteronme with X"):
 
-> Open FilterOnMe first, select your real webcam inside it, then select the
-> "FilterOnMe" camera inside X's video/camera settings. FilterOnMe needs to be
-> open when X starts looking for cameras — open FilterOnMe before X.
+> Open Filteronme first, select your real webcam inside it, then select the
+> "Filteronme" camera inside X's video/camera settings. Filteronme needs to be
+> open when X starts looking for cameras — open Filteronme before X.
 
-On Mac (latest app version), FilterOnMe can be closed after the camera is
+On Mac (latest app version), Filteronme can be closed after the camera is
 selected in the target app, to save resources. On Windows it must stay open
 the whole time. (docs 81, 88)
 
 **Per-app notes:**
 
 - **Zoom / Google Meet / Teams / Webex / Messenger / Skype / FaceTime /
-  Riverside.fm** — select "FilterOnMe" as the camera in that app's video
-  settings, FilterOnMe must be open. (convs 2536444506, 2299718402, 2484253372,
+  Riverside.fm** — select "Filteronme" as the camera in that app's video
+  settings, Filteronme must be open. (convs 2536444506, 2299718402, 2484253372,
   2341705382, 2573643900, 2556990995, 2524998992)
 - **OBS / Streamlabs** — add/edit the "Video Capture Device" source, pick
-  FilterOnMe. If OBS is running as Administrator, the FilterOnMe camera may not
+  Filteronme. If OBS is running as Administrator, the Filteronme camera may not
   show up — try running OBS as a normal user; if admin mode is required, the
-  fix is reinstalling FilterOnMe via `msiexec /i "...\Filteronme.msi"
+  fix is reinstalling Filteronme via `msiexec /i "...\Filteronme.msi"
   ALLUSERS=1` from an admin command prompt (doc 81 has exact steps — just link
   it, don't retype the command manually to the customer unless they need
   hand-holding). (convs 2472093336, 2541793380, 2567668898, 2528147213,
   2517731178) (doc 81)
 - **Discord** — same pattern; on some Discord versions the camera won't list
-  directly and the working chain is FilterOnMe → OBS → Discord. (convs
+  directly and the working chain is Filteronme → OBS → Discord. (convs
   2537266550, 2556807646) (doc 88)
 - **Phone-as-webcam chains (DroidCam, etc.)** — select DroidCam (or whatever
-  phone-cam app) as the input *inside FilterOnMe*, then select FilterOnMe
-  inside the target app: `Phone/DroidCam → FilterOnMe → OBS/Discord/etc. →
+  phone-cam app) as the input *inside Filteronme*, then select Filteronme
+  inside the target app: `Phone/DroidCam → Filteronme → OBS/Discord/etc. →
   final app`. (conv 2480067625)
 - **Pre-recorded video / TikTok-style filtering** — not natively supported.
   Workaround: start the OBS virtual camera with the video looping as a source,
-  select the OBS virtual camera inside FilterOnMe, apply filters, then screen
-  record FilterOnMe. Frame as a workaround, not a real feature. (conv
+  select the OBS virtual camera inside Filteronme, apply filters, then screen
+  record Filteronme. Frame as a workaround, not a real feature. (conv
   2751615480)
 - **Mirror video** — Settings tab → toggle "Mirror". (conv 2956199142) (doc
   107)
@@ -78,7 +78,7 @@ the whole time. (docs 81, 88)
   than walking them through it live. (convs 2499272936, 2612826463, 2382469364,
   3069206277-style "extension won't go away") (doc 93)
 - **Uninstall Windows** — Add/Remove Programs (Windows Settings) → uninstall
-  FilterOnMe. **Do not** reuse the Mac "delete from Applications folder"
+  Filteronme. **Do not** reuse the Mac "delete from Applications folder"
   answer for a Windows question — one historical Jona reply (conv 2904723262)
   did exactly that and it's wrong for Windows; use the Windows-specific
   answer. (conv 2510210958 has the correct Windows answer)
@@ -96,17 +96,17 @@ the whole time. (docs 81, 88)
 ## How to respond
 
 > Hi,
-> Once installed you should be able to select the FilterOnMe camera inside
+> Once installed you should be able to select the Filteronme camera inside
 > OBS.
 > Best
 
-> Hey you should be able to select Droidcam in FilterOnMe, then select
-> FilterOnMe in OBS.
-> So it's Droidcam → FilterOnMe → OBS → final app.
+> Hey you should be able to select Droidcam in Filteronme, then select
+> Filteronme in OBS.
+> So it's Droidcam → Filteronme → OBS → final app.
 > Let me know if you need more help!
 > Best
 
-> Hi, make sure the FilterOnMe app is open, then select the FilterOnMe camera
+> Hi, make sure the Filteronme app is open, then select the Filteronme camera
 > inside of Discord.
 
 > Hi,
@@ -121,7 +121,7 @@ tech-issue/no-camera-detected conversation.
 
 ## Escalate instead (tag needs-human) when
 
-- They followed the standard steps (FilterOnMe open, correct order) and the
+- They followed the standard steps (Filteronme open, correct order) and the
   camera still doesn't show up in the target app, is blank, or crashes — this
   is now a malfunction, not a how-to question. Route to the tech-issue
   playbook.

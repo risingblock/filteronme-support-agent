@@ -39,7 +39,7 @@ export function makeTools(ctx: RunContext) {
 
     get_account_by_email: tool({
       description:
-        "Look up a FilterOnMe app account by email (read-only). Returns " +
+        "Look up a Filteronme app account by email (read-only). Returns " +
         "premium status, free-premium grant, and trial timing.",
       inputSchema: z.object({ email: z.string().email() }),
       execute: instrumented(ctx, "get_account_by_email", async ({ email }: { email: string }) => {

@@ -8,6 +8,6 @@ verdict: keep
 related: [change-camera-selection, virtual-background]
 ---
 
-Go to the **Settings** tab in FilterOnMe and toggle **Mirror**.
+Go to the **Settings** tab in Filteronme and toggle **Mirror**.
 
 Still stuck? Email support@filteronme.com

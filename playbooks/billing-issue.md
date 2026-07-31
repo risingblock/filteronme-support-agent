@@ -26,7 +26,7 @@ status: approved 2026-07-27 (facts code-verified against app v2.1.7 + web)
 Not this playbook: pure "please cancel me" with no dispute over money (→
 `cancel-subscription`), refund requests with no confusion about the charge
 itself (→ `refund-request`), and "I don't recognize this company" cases where
-the customer never had a FilterOnMe account at all (→ `filterly-confusion`,
+the customer never had a Filteronme account at all (→ `filterly-confusion`,
 56 convs — see below).
 
 ## What to check first
@@ -36,7 +36,7 @@ the customer never had a FilterOnMe account at all (→ `filterly-confusion`,
    and got a canned PayPal answer that had nothing to do with the question;
    Eddy had to correct it).
 2. **Search Help Scout / the live account by the email in the ticket.** If
-   there is no FilterOnMe account or subscription under that email (or any
+   there is no Filteronme account or subscription under that email (or any
    plausible variant), stop and cross-check the **filterly-confusion**
    playbook before answering — "charged after cancelling" and "I never signed
    up" are very often actually Filterly (a different, unaffiliated product)
@@ -199,7 +199,7 @@ copy-paste the generic block onto an unrelated question).
   a large share of the 190 tickets and is safe to draft confidently.
 - **Jona divergence (quality, not policy):** Jona frequently fires the
   templated "check your statement / not affiliated with Filterly" block at
-  tickets that already show the charge *is* from FilterOnMe and the customer
+  tickets that already show the charge *is* from Filteronme and the customer
   has already proven it (conv 3263004357 — customer replies with the exact
   statement line, gets a near-identical canned reply back; conv 3094193842 —
   a legitimate duplicate-charge dispute got five rounds of template/context

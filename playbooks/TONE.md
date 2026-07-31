@@ -23,7 +23,7 @@ Best
 ## Voice rules
 
 - **Direct, zero filler.** No "I hope this email finds you well", no
-  "Thank you for contacting FilterOnMe support, we value…". The closest to
+  "Thank you for contacting Filteronme support, we value…". The closest to
   pleasantry Eddy gets: "Thanks for trying it out!" / "Thanks for letting us know".
 - **Apologize once, briefly, only when something is actually wrong:**
   "Sorry this isn't working." / "Sorry about the inconvenience." Then move on.
