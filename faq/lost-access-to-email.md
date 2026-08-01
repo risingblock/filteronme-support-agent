@@ -13,7 +13,9 @@ Lost the inbox your Filteronme account is under? You can move your account to a 
 How it works:
 
 1. Enter a new email you **can** read, and confirm it with a 6-digit code we send there.
-2. Prove the subscription is yours with details from your card statement: the last 4 digits of the card that pays for it, the card brand, the name on the card, and your last charge amount (it's on your statement next to WWW.FILTERONME.COM).
+2. Prove the subscription is yours with details from your card statement: the last 4 digits of the card that pays for it, the card brand, the name on the card, and your last charge amount (it's on your statement next to WWW.FILTERONME.COM, in the currency we charged — USD, or EUR on European plans; if your bank converted it, leave the amount blank).
+
+   Paid with Apple Pay? Use the last 4 digits of your **Device Account Number**, not your physical card — find it in the Wallet app: tap the card, then the ⓘ button.
 3. If the details match, the move completes automatically after a 48-hour safety window. We notify the old address too, so the real owner can block anything they didn't ask for. Nothing is ever charged.
 
 You'll get a confirmation at your new email when it's done. If nothing arrives after 48 hours, the details didn't match — double-check them against your statement and try again.
