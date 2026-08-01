@@ -6,6 +6,9 @@ status: approved 2026-07-27 (facts code-verified against app v2.1.7 + web)
 
 # Login & Account Access
 
+
+**SEE playbooks/SELF-SERVE-FLOWS.md (D21): lost/unknown-email cases now have full self-serve flows (/billing-email card finder, /recover, /change-email) with deep links — link those first.**
+
 ## When this applies
 
 Verification code never arrives or errors out, can't get the Stripe billing-portal

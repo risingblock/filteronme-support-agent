@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "filteronme-dev",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", "cd /Users/eddy/work/Filteronme-one && yarn dev"],
+      "port": 3000
+    }
+  ]
+}

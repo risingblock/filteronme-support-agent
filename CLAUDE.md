@@ -16,14 +16,15 @@ decided and why — do not relitigate those without new information.**
   some articles stale — check `last_updated`).
 - In historical replies: **Eddy Chung (founder) is the canonical voice**; replies
   by Jona De Guzman / Rajan Patel (former support) are not authoritative (see D12).
-- Current status: **Phases 0–1 done** — 1,957 conversations exported; 16
-  playbooks approved, code-verified, dry-run-tested and graded by Eddy;
-  chargeback economics analyzed (hold the line, D15). **Phase 2 replanned
-  (D19)**: custom support portal + email ingestion inside the filteronme-one
-  repo on Vercel (eve framework candidate) — see `PORTAL-SPEC.md`. Help Scout
-  is being left (D16/D19); no cron loop will be built for it. This repo is
-  the permanent **brain**: playbooks, prompts, history archive, decision log,
-  dry-run harness.
+- Current status: see **HANDOFF.md** (always read it — precise live/pending
+  state). Summary: help center + contact form LIVE at filteronme.com/help,
+  help.filteronme.com DNS on Vercel; drafting agent deployed (own Vercel
+  project from this repo) but unconnected pending the portal inbox; large
+  verified-but-undeployed batch in filteronme-one (recovery/cancel-by-card/
+  past_due fixes). Remaining phase: portal inbox (PORTAL-SPEC.md) → retire
+  Help Scout. This repo is the permanent **brain**: playbooks (incl.
+  SELF-SERVE-FLOWS.md), prompts, history archive, decision log, dry-run
+  harness.
 
 ## Core architecture (the gumclaw insight)
 

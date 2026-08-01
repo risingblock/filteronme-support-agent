@@ -6,6 +6,9 @@ status: approved 2026-07-27 (facts code-verified against app v2.1.7 + web)
 
 # Premium not working (paid but watermark/lock still shows)
 
+
+**SEE playbooks/SELF-SERVE-FLOWS.md (D21): past_due is the top hidden cause — app/restore-flow messaging fixed 2026-08-01; drafts should send the billing portal link to fix the card, and Pattern C's 'cancelled on [date]' wording is for genuinely cancelled subs only.**
+
 ## When this applies
 
 Customer says some version of: "I paid but the watermark is still there," "it

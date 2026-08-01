@@ -6,6 +6,9 @@ status: approved 2026-07-27
 
 # Cancel subscription
 
+
+**SEE playbooks/SELF-SERVE-FLOWS.md (D21): link the self-serve ladder — portal, card finder, filteronme.com/cancel — never route to support; deep link filteronme.com/help/contact?topic=cancel.**
+
 ## When this applies
 
 - Direct cancellation requests: "cancel my subscription", "cancel", "unsubscribe me" — in any tone from polite to ALL-CAPS demands.

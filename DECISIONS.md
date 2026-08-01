@@ -171,6 +171,21 @@ subscription email server-side before acting, regardless of what the model
 claims, only ever cancel_at_period_end, and writes an audit log. Prompt
 guardrails are the soft layer; deterministic code is the enforcement layer.
 
+## D21. Self-serve everything; support is never the designed fallback
+## (Eddy, 2026-07-31/08-01)
+No flow may route customers to "contact support" for anything deterministic
+code can resolve. Built accordingly: cancel ladder (portal → card finder →
+cancel-by-card), account recovery with code-verified destination email and
+tiered veto windows (48h strong match / 96h weak match for wallet payments),
+change-email, portal-link finder. Cancel-by-card executes INSTANTLY because
+cancel_at_period_end is reversible and money-safe (notified + undo link);
+transfers always get veto windows because they hand over accounts. All
+matching is deterministic with mandatory uniqueness; ambiguity = silent
+refusal; every attempt logged (AccountRecovery table). Contact-form deep
+links (?topic=&issue=) exist for support/agent replies. See
+playbooks/SELF-SERVE-FLOWS.md for the full reference. Also fixed the
+past_due bug class (phantom-transfer message, trial-reset masking).
+
 ## Open questions (not yet decided)
 
 - Does Help Scout's reply endpoint support a `draft: true` flag for real API drafts,

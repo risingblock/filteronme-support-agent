@@ -6,6 +6,9 @@ status: approved 2026-07-27 (facts code-verified against app v2.1.7 + web)
 
 # Billing issues (charges, declines, payment methods, price)
 
+
+**SEE playbooks/SELF-SERVE-FLOWS.md (D21) for self-serve links incl. cancel-by-card and the card finder; past_due handling fixed 2026-08-01.**
+
 ## When this applies
 
 - **Charged after cancelling** — customer says they cancelled but a charge still
