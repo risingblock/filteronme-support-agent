@@ -17,4 +17,6 @@ Other things to check:
 - Your bank or card statement — real charges from us show as **WWW.FILTERONME.COM** or **FILTERONME.COM**. A similarly-named company, Filterly, is a different business we're not affiliated with; if that's what you're seeing, their support can help.
 - Whether you're still on the free trial. A trial-only account has never been charged, so there's no billing record and no login link will ever be sent — that's normal.
 
-Still no luck after trying every email you own? Email support@filteronme.com and we'll look you up directly.
+Can't guess the right email? On the same page there's a card option — enter your card's last 4 digits and we'll send the login link to the address your subscription is under, whichever inbox that is.
+
+Lost access to that inbox entirely? Use [account recovery](lost-access-to-email) to move your subscription to a new email.

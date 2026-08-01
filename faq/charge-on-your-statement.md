@@ -20,7 +20,7 @@ Our subscriptions bill **monthly or yearly** — never weekly or every few days.
 
 ## Find out which email it's under
 
-Try each email address you might have used at https://filteronme.com/billing-email. Enter one and submit — if that address has a subscription, we'll email a billing portal login link to it. It won't tell you which email is right, it just sends the link when it finds a match, so try a few.
+Try each email address you might have used at https://filteronme.com/billing-email. Enter one and submit — if that address has a subscription, we'll email a billing portal login link to it. It won't tell you which email is right, it just sends the link when it finds a match, so try a few. Out of guesses? Use the card option on that page — enter your card's last 4 digits and the link goes to the address on file automatically.
 
 ## Cancel or manage it
 

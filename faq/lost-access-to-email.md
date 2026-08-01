@@ -4,24 +4,23 @@ slug: lost-access-to-email
 legacy_url: https://help.filteronme.com/article/140-lost-access-to-email
 title: Lost access to email
 category: account-login
-verdict: keep
-related: [change-email-or-transfer-subscription-to-another-email-address, restore-purchase-or-access-existing-subscription]
+verdict: rewrite
+related: [change-email-or-transfer-subscription-to-another-email-address, unable-to-get-login-link-to-stripe-billing-portal]
 ---
 
-If you no longer have access to the email address on your Filteronme account, email support@filteronme.com and we'll help you move it — this can't be done through the app.
+Lost the inbox your Filteronme account is under? You can move your account to a new email yourself at https://www.filteronme.com/recover — no waiting on support.
 
-Because this changes account ownership, we need to verify you own the subscription first. Send as much of the following as you can:
+How it works:
 
-- Your old account email
-- The new email you'd like to use
-- Your most recent Filteronme charge date and amount
-- The last 4 digits and brand of the payment card used, if you have it
-- The name and billing address on the payment method
-- Any Filteronme receipt, invoice, or order number you can find
-- Whether you might have more than one Filteronme account
+1. Enter a new email you **can** read, and confirm it with a 6-digit code we send there.
+2. Prove the subscription is yours with details from your card statement: the last 4 digits of the card that pays for it, the card brand, the name on the card, and your last charge amount (it's on your statement next to WWW.FILTERONME.COM).
+3. If the details match, the move completes automatically after a 48-hour safety window. We notify the old address too, so the real owner can block anything they didn't ask for. Nothing is ever charged.
 
-The more of this you can provide up front, the faster we can verify you. This is a manual review, so it can take 5–10 business days or longer — there's no guaranteed date, but we'll follow up once it's sorted.
+You'll get a confirmation at your new email when it's done. If nothing arrives after 48 hours, the details didn't match — double-check them against your statement and try again.
 
-If you still have access to your old email, use [change email or transfer subscription](change-email-or-transfer-subscription-to-another-email-address) instead — it's instant and self-serve.
+Not actually locked out?
+
+- **Still have the old email?** Use [change email or transfer subscription](change-email-or-transfer-subscription-to-another-email-address) instead — it's instant.
+- **Just can't remember which email you used?** Enter your card's last 4 digits at https://www.filteronme.com/billing-email and we'll send a login link to the address on file — it'll land in whichever of your inboxes is the right one.
 
 Still stuck? Email support@filteronme.com

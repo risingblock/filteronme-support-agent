@@ -15,4 +15,5 @@ Requesting a second code before that invalidates the one already sent — that's
 If codes never arrive at all, even after waiting and checking spam/junk:
 
 - Try a different email address, in case the one you're using has an issue on our end.
+- Not sure you're using the right email at all? Enter your card's last 4 digits at https://www.filteronme.com/billing-email and we'll send a login link to the address your subscription is actually under.
 - If it still doesn't work, email support@filteronme.com with the email address you're trying to log in with.
